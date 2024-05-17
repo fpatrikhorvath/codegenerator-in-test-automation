@@ -1,0 +1,211 @@
+openapi: 3.0.0
+info:
+  description: API for managing users and books
+  title: User and Book API
+  version: 1.0.0
+servers:
+- description: Local server
+  url: http://localhost:3000
+paths:
+  /users:
+    get:
+      operationId: getUsers
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/User'
+                type: array
+          description: List of users
+      summary: Get all users
+      x-accepts: application/json
+    post:
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createUser_request'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/createUser_201_response'
+          description: User created successfully
+      summary: Create a user
+      x-content-type: application/json
+      x-accepts: application/json
+  /users/{userId}:
+    delete:
+      operationId: deleteUser
+      parameters:
+      - description: ID of the user to delete
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          description: User deleted successfully
+      summary: Delete a user
+      x-accepts: application/json
+  /users/{userId}/books:
+    get:
+      operationId: getBooksForUser
+      parameters:
+      - description: ID of the user to get books for
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Book'
+                type: array
+          description: List of books for the user
+      summary: Get all books for a user
+      x-accepts: application/json
+    post:
+      operationId: createBookForUser
+      parameters:
+      - description: ID of the user to create a book for
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createBookForUser_request'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+          description: Book created successfully
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/createBookForUser_404_response'
+          description: User not found
+      summary: Create a book for a user
+      x-content-type: application/json
+      x-accepts: application/json
+  /users/{userId}/books/{bookId}:
+    delete:
+      operationId: deleteBookForUser
+      parameters:
+      - description: ID of the user to delete a book from
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: ID of the book to delete
+        explode: false
+        in: path
+        name: bookId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "204":
+          description: Book deleted successfully
+      summary: Delete a book for a user
+      x-accepts: application/json
+components:
+  schemas:
+    User:
+      example:
+        name: name
+        id: 0
+        email: email
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          format: email
+          type: string
+      type: object
+    Book:
+      example:
+        author: author
+        id: 0
+        title: title
+        userId: 6
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        title:
+          type: string
+        author:
+          type: string
+      type: object
+    createUser_request:
+      properties:
+        name:
+          type: string
+        email:
+          format: email
+          type: string
+      required:
+      - email
+      - name
+      type: object
+    createUser_201_response:
+      example:
+        name: name
+        id: 0
+        email: email
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          format: email
+          type: string
+      type: object
+    createBookForUser_request:
+      properties:
+        title:
+          type: string
+        author:
+          type: string
+      required:
+      - author
+      - title
+      type: object
+    createBookForUser_404_response:
+      properties:
+        error:
+          type: string
+      type: object

@@ -108,37 +108,29 @@
             </plugin>
 
             <plugin>
-                <groupId>io.swagger.codegen.v3</groupId>
-                <artifactId>swagger-codegen-maven-plugin</artifactId>
-                <version>3.0.56</version>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>6.0.1</version> <!-- Use the latest stable version -->
                 <executions>
                     <execution>
                         <goals>
                             <goal>generate</goal>
                         </goals>
+                        <configuration>
+                            <inputSpec>src/main/resources/swagger.json</inputSpec>
+                            <generatorName>spring</generatorName>
+                            <output>target/generated-sources</output>
+                            <configOptions>
+                                <groupId>${project.groupId}.swagger</groupId>
+                                <artifactId>${project.artifactId}-swagger</artifactId>
+                                <artifactVersion>${project.version}</artifactVersion>
+                                <hideGenerationTimestamp>true</hideGenerationTimestamp>
+                                <library>spring-boot</library>
+                                <dateLibrary>java17</dateLibrary>
+                            </configOptions>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <!-- Configuration options -->
-                    <inputSpec>src\main\resources\swagger.json</inputSpec>
-                    <language>spring</language>
-                    <output>target\generated-sources</output>
-                    <configOptions>
-                        <groupId>${project.groupId}.swagger</groupId>
-                        <artifactId>${project.artifactId}-swagger</artifactId>
-                        <artifactVersion>${project.version}</artifactVersion>
-                        <hideGenerationTimestamp>true</hideGenerationTimestamp>
-                        <java8>true</java8>
-                        <useTags>false</useTags>
-
-                        <!--                        <library>resttemplate</library>-->
-                        <!--                        <interfaceOnly>true</interfaceOnly>-->
-                        <!--                        <dateLibrary>java8</dateLibrary>-->
-                                                <useSwaggerAnnotations>true</useSwaggerAnnotations>
-                        <!--                        <serializeableModel>true</serializeableModel>-->
-
-                    </configOptions>
-                </configuration>
             </plugin>
         </plugins>
     </build>
