@@ -13,18 +13,18 @@
   ],
   "tags": [
     {
-      "name": "UserApi",
+      "name": "User",
       "description": "Operations related to users"
     },
     {
-      "name": "BookApi",
+      "name": "Book",
       "description": "Operations related to books"
     }
   ],
   "paths": {
     "/users": {
       "post": {
-        "tags": ["UserApi"],
+        "tags": ["User"],
         "summary": "Create a user",
         "operationId": "createUser",
         "requestBody": {
@@ -40,9 +40,13 @@
                   "email": {
                     "type": "string",
                     "format": "email"
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": ["A", "B", "C"]
                   }
                 },
-                "required": ["name", "email"]
+                "required": ["name", "email", "status"]
               }
             }
           }
@@ -64,6 +68,10 @@
                     "email": {
                       "type": "string",
                       "format": "email"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": ["A", "B", "C"]
                     }
                   }
                 }
@@ -73,7 +81,7 @@
         }
       },
       "get": {
-        "tags": ["UserApi"],
+        "tags": ["User"],
         "summary": "Get all users",
         "operationId": "getUsers",
         "responses": {
@@ -95,7 +103,7 @@
     },
     "/users/{userId}": {
       "delete": {
-        "tags": ["UserApi"],
+        "tags": ["User"],
         "summary": "Delete a user",
         "operationId": "deleteUser",
         "parameters": [
@@ -118,7 +126,7 @@
     },
     "/users/{userId}/books": {
       "post": {
-        "tags": ["BookApi"],
+        "tags": ["Book"],
         "summary": "Create a book for a user",
         "operationId": "createBookForUser",
         "parameters": [
@@ -180,7 +188,7 @@
         }
       },
       "get": {
-        "tags": ["BookApi"],
+        "tags": ["Book"],
         "summary": "Get all books for a user",
         "operationId": "getBooksForUser",
         "parameters": [
@@ -213,7 +221,7 @@
     },
     "/users/{userId}/books/{bookId}": {
       "delete": {
-        "tags": ["BookApi"],
+        "tags": ["Book"],
         "summary": "Delete a book for a user",
         "operationId": "deleteBookForUser",
         "parameters": [
@@ -258,8 +266,13 @@
           "email": {
             "type": "string",
             "format": "email"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["A", "B", "C"]
           }
-        }
+        },
+        "required": ["id", "name", "email", "status"]
       },
       "Book": {
         "type": "object",
@@ -276,7 +289,8 @@
           "author": {
             "type": "string"
           }
-        }
+        },
+        "required": ["id", "userId", "title", "author"]
       }
     }
   }
