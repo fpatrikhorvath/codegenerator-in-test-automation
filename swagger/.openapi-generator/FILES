@@ -1,0 +1,12 @@
+.openapi-generator-ignore
+README.md
+pom.xml
+src/main/java/org/openapitools/api/BookApiApi.java
+src/main/java/org/openapitools/api/UserApiApi.java
+src/main/java/org/openapitools/configuration/HttpInterfacesAbstractConfigurator.java
+src/main/java/org/openapitools/model/Book.java
+src/main/java/org/openapitools/model/CreateBookForUser404Response.java
+src/main/java/org/openapitools/model/CreateBookForUserRequest.java
+src/main/java/org/openapitools/model/CreateUser201Response.java
+src/main/java/org/openapitools/model/CreateUserRequest.java
+src/main/java/org/openapitools/model/User.java

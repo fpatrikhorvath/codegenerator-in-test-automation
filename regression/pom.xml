@@ -14,6 +14,21 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>regression</name>
 
+    <properties>
+        <io.cucumber.version>7.13.0</io.cucumber.version>
+        <org.assetj.assertj-core.version>3.23.1</org.assetj.assertj-core.version>
+        <org.postgresql.postgresql-driver.version>42.6.0</org.postgresql.postgresql-driver.version>
+        <org.seleniumhq.selenium.selenium-java.version>4.17.0</org.seleniumhq.selenium.selenium-java.version>
+        <com.hierynomus.sshj.version>0.38.0</com.hierynomus.sshj.version>
+        <org.springframework.spring-boot.version>3.2.1</org.springframework.spring-boot.version>
+        <org.apache.commons.commons-lang3.version>3.12.0</org.apache.commons.commons-lang3.version>
+        <codegen.maven.plugin.version>3.0.56</codegen.maven.plugin.version>
+
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -97,6 +112,11 @@
             <version>${org.assetj.assertj-core.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.swagger.generated</groupId>
+            <artifactId>swagger-generated</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
     </dependencies>
 
@@ -106,49 +126,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
-            <plugin>
-                <groupId>org.openapitools</groupId>
-                <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>6.0.1</version> <!-- Use the latest stable version -->
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <inputSpec>src/main/resources/swagger.json</inputSpec>
-                            <generatorName>java</generatorName>
-                            <output>target/generated-sources</output>
-                            <configOptions>
-                                <groupId>${project.groupId}.swagger</groupId>
-                                <artifactId>${project.artifactId}-swagger</artifactId>
-                                <artifactVersion>${project.version}</artifactVersion>
-                                <hideGenerationTimestamp>true</hideGenerationTimestamp>
-                                <library>resttemplate</library>
-                                <skipDefaultInterface>true</skipDefaultInterface>
-                                <dateLibrary>java17</dateLibrary>
-                            </configOptions>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 
-    <properties>
-        <io.cucumber.version>7.13.0</io.cucumber.version>
-        <org.assetj.assertj-core.version>3.23.1</org.assetj.assertj-core.version>
-        <org.postgresql.postgresql-driver.version>42.6.0</org.postgresql.postgresql-driver.version>
-        <org.seleniumhq.selenium.selenium-java.version>4.17.0</org.seleniumhq.selenium.selenium-java.version>
-        <com.hierynomus.sshj.version>0.38.0</com.hierynomus.sshj.version>
-        <org.springframework.spring-boot.version>3.2.1</org.springframework.spring-boot.version>
-        <org.apache.commons.commons-lang3.version>3.12.0</org.apache.commons.commons-lang3.version>
-        <codegen.maven.plugin.version>3.0.56</codegen.maven.plugin.version>
-
-        <java.version>17</java.version>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 </project>

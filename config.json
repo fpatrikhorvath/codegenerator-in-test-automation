@@ -1,0 +1,10 @@
+{
+  "groupId": "com.swagger.generated",
+  "artifactId": "swagger-generated",
+  "artifactVersion": "1.0.0",
+  "hideGenerationTimestamp": true,
+  "library": "spring-http-interface",
+  "dateLibrary": "java17",
+  "annotationLibrary": "swagger1",
+  "generateSupportingFiles": false
+}
