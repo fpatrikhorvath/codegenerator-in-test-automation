@@ -118,14 +118,15 @@
                         </goals>
                         <configuration>
                             <inputSpec>src/main/resources/swagger.json</inputSpec>
-                            <generatorName>spring</generatorName>
+                            <generatorName>java</generatorName>
                             <output>target/generated-sources</output>
                             <configOptions>
                                 <groupId>${project.groupId}.swagger</groupId>
                                 <artifactId>${project.artifactId}-swagger</artifactId>
                                 <artifactVersion>${project.version}</artifactVersion>
                                 <hideGenerationTimestamp>true</hideGenerationTimestamp>
-                                <library>spring-boot</library>
+                                <library>resttemplate</library>
+                                <skipDefaultInterface>true</skipDefaultInterface>
                                 <dateLibrary>java17</dateLibrary>
                             </configOptions>
                         </configuration>
