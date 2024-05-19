@@ -10,24 +10,18 @@ import java.util.List;
 
 @Component
 @ScenarioScope
-public class ScenarioContext implements IScenarioContext {
+public class ScenarioContext{
     private final HashMap<String, Object> contextObjectMap = new HashMap<>();
-    private final List<ResponseEntity<String>> responseEntityList = new ArrayList<>();
 
     public ScenarioContext() {
     }
 
-    @Override
     public void storeContextObject(final String key, final Object object) {
         contextObjectMap.put(key, object);
     }
 
-    @Override
     public Object getContextObject(final String key) {
         return contextObjectMap.get(key);
     }
 
-    public List<ResponseEntity<String>> getResponseEntityList() {
-        return responseEntityList;
-    }
 }

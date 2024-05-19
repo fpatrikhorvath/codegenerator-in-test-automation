@@ -15,7 +15,7 @@ import java.util.List;
 
 @Service
 @ScenarioScope
-public class UserService implements IUserService {
+public class UserService {
     private static final Logger logger = LogManager.getLogger(UserService.class);
 
     private final UserClient userClient;
@@ -26,7 +26,6 @@ public class UserService implements IUserService {
         this.randomService = randomService;
     }
 
-    @Override
     public ContextUser initContextUser(final String contextId, final String statusString) {
         ContextUser user = new ContextUser();
 
@@ -41,7 +40,6 @@ public class UserService implements IUserService {
         return user;
     }
 
-    @Override
     public ResponseEntity<CreateUser201Response> registerUser(final ContextUser user) {
         CreateUserRequest body = new CreateUserRequest();
 
@@ -54,7 +52,6 @@ public class UserService implements IUserService {
         return userClient.createUser(body);
     }
 
-    @Override
     public ResponseEntity<List<User>> getUsers() {
         return userClient.getUsers();
     }
