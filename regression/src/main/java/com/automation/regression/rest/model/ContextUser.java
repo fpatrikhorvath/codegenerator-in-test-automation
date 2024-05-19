@@ -8,11 +8,8 @@ public class ContextUser extends User {
     public ContextUser() {
     }
 
-    public String getContextId() {
-        return contextId;
-    }
-
     public void setContextId(final String contextId) {
         this.contextId = contextId;
     }
+
 }

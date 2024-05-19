@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -15,19 +16,11 @@
     <name>regression</name>
 
     <properties>
+        <java.version>17</java.version>
         <io.cucumber.version>7.13.0</io.cucumber.version>
         <org.assetj.assertj-core.version>3.23.1</org.assetj.assertj-core.version>
-        <org.postgresql.postgresql-driver.version>42.6.0</org.postgresql.postgresql-driver.version>
-        <org.seleniumhq.selenium.selenium-java.version>4.17.0</org.seleniumhq.selenium.selenium-java.version>
-        <com.hierynomus.sshj.version>0.38.0</com.hierynomus.sshj.version>
         <org.springframework.spring-boot.version>3.2.1</org.springframework.spring-boot.version>
-        <org.apache.commons.commons-lang3.version>3.12.0</org.apache.commons.commons-lang3.version>
         <codegen.maven.plugin.version>3.0.56</codegen.maven.plugin.version>
-
-        <java.version>17</java.version>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
@@ -36,24 +29,11 @@
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
-        <!--        <dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-test</artifactId>
-                </dependency>
-                -->
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
             <version>${org.springframework.spring-boot.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
-
 
         <dependency>
             <groupId>io.cucumber</groupId>
@@ -64,41 +44,18 @@
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-spring</artifactId>
             <version>${io.cucumber.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
             <version>${org.springframework.spring-boot.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-
-                <exclusion>
-                    <groupId>ch.qos.logback</groupId>
-                    <artifactId>logback-classic</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
             <version>${io.cucumber.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>junit</groupId>
-                    <artifactId>junit</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
 

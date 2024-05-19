@@ -23,7 +23,7 @@ public class RestClient {
         this.webClient = WebClient.builder()
                 .baseUrl(url)
                 .defaultHeaders(httpHeaders -> httpHeaders.addAll(this.headers)).build();
-        logger.trace(webClient);
+        //logger.trace(webClient);
     }
 
     public <T> ResponseEntity<T> post(final String endpoint, final Object body, final Class<T> clazz) {
@@ -35,7 +35,8 @@ public class RestClient {
                 .retrieve()
                 .toEntity(clazz)
                 .block();
-        logger.debug("Response: {}", response);
+        //logger.debug("Response: {}", response);
+        System.out.println("Response: " + response);
         return response;
     }
 
@@ -56,6 +57,8 @@ public class RestClient {
             }
         }
 
-        logger.debug("Curl command: {}", curlCommand.toString().trim());
+        //logger.debug("Curl command: {}", curlCommand.toString().trim());
+        System.out.println("Curl command: " + curlCommand.toString().trim());
+
     }
 }

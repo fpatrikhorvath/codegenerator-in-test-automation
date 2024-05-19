@@ -34,13 +34,13 @@ public class UserService implements IUserService {
         user.setEmail(randomService.getRandomString(7) + "@gmail.com");
         user.setStatus(status);
 
-        logger.debug("User: " + user);
-
+        //logger.debug("Context user: {}", user);
+        System.out.println("Context user: " + user);
         return user;
     }
 
     @Override
-    public ResponseEntity<CreateUser201Response> registerUser(final User user) {
+    public ResponseEntity<CreateUser201Response> registerUser(final ContextUser user) {
         CreateUserRequest body = new CreateUserRequest();
 
         CreateUserRequest.StatusEnum status = CreateUserRequest.StatusEnum.valueOf(user.getStatus().toString());
@@ -48,8 +48,6 @@ public class UserService implements IUserService {
         body.setName(user.getName());
         body.setEmail(user.getEmail());
         body.setStatus(status);
-
-        logger.debug("Request body: " + body);
 
         return userClient.createUser(body);
     }

@@ -20,7 +20,7 @@ public class UserSteps extends TestCore {
     }
 
 
-    @Given("create a new user of status {word} and store it as {word} - {}")
+    @Given("(create )a new user of status {word} and store it as {word} - {}")
     public void createANewUserOfTypeAndStoreItAs(final String statusString, final String contextId, final HttpStatus httpStatus) {
         ContextUser user = getUserService().initContextUser(contextId, statusString);
         ResponseEntity<CreateUser201Response> response = getUserService().registerUser(user);
