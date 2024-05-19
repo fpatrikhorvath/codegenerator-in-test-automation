@@ -15,8 +15,8 @@ let books = [];
 
 // Create a user
 app.post('/users', (req, res) => {
-    const { name, email } = req.body;
-    const newUser = { id: users.length + 1, name, email };
+    const { name, email, status } = req.body;
+    const newUser = { id: users.length + 1, name, email, status };
     users.push(newUser);
     res.status(201).json(newUser);
 });

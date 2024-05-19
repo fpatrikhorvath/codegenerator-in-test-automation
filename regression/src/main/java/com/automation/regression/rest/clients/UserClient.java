@@ -18,6 +18,8 @@ import java.util.List;
 @ScenarioScope
 public class UserClient implements UserApi {
     private static final String CREATE_USER_PATH = "/users";
+    private static final String GET_USER_PATH = "/users";
+
     private final UserLayerConfig userLayerConfig;
     private final RestClient restClient;
 
@@ -40,6 +42,6 @@ public class UserClient implements UserApi {
 
     @Override
     public ResponseEntity<List<User>> getUsers() {
-        return null;
+        return restClient.getList(CREATE_USER_PATH, User.class);
     }
 }

@@ -8,6 +8,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.util.List;
+
 public class RestClient {
     private static final Logger logger = LogManager.getLogger(RestClient.class);
     private final WebClient webClient;
@@ -24,6 +26,19 @@ public class RestClient {
                 .baseUrl(url)
                 .defaultHeaders(httpHeaders -> httpHeaders.addAll(this.headers)).build();
         //logger.trace(webClient);
+    }
+
+    public <T> ResponseEntity<List<T>> getList(final String endpoint, final Class<T> clazz) {
+        logCurl("GET", endpoint, null);
+        ResponseEntity<List<T>> response = webClient
+                .get()
+                .uri(endpoint)
+                .retrieve()
+                .toEntityList(clazz)
+                .blockOptional()
+                .orElse(ResponseEntity.notFound().build());
+        logger.debug("Response: {}", response);
+        return response;
     }
 
     public <T> ResponseEntity<T> post(final String endpoint, final Object body, final Class<T> clazz) {

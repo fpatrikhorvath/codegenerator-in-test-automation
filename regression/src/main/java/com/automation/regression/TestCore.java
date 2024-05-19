@@ -1,5 +1,6 @@
 package com.automation.regression;
 
+import com.automation.regression.context.IScenarioContext;
 import com.automation.regression.service.IUserService;
 import com.automation.regression.stores.UserLayerContextStore;
 import io.cucumber.spring.CucumberContextConfiguration;
@@ -16,10 +17,13 @@ import org.springframework.test.context.ContextConfiguration;
 @Primary
 @ScenarioScope
 public class TestCore {
-    protected final String responseCodeCheckMessage = "Expected response code (%d) does not match with actual (%d)";
+    protected final String responseCodeCheckMessage = "Expected response code does not match with actual.";
+    protected final IScenarioContext scenarioContext;
     private final UserLayerContextStore userLayerContextStore;
-    public TestCore(final UserLayerContextStore userLayerContextStore) {
+
+    public TestCore(final UserLayerContextStore userLayerContextStore, final IScenarioContext scenarioContext) {
         this.userLayerContextStore = userLayerContextStore;
+        this.scenarioContext = scenarioContext;
     }
 
     protected IUserService getUserService() {

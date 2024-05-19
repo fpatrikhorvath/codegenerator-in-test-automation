@@ -11,6 +11,8 @@ import org.openapitools.model.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @ScenarioScope
 public class UserService implements IUserService {
@@ -51,4 +53,10 @@ public class UserService implements IUserService {
 
         return userClient.createUser(body);
     }
+
+    @Override
+    public ResponseEntity<List<User>> getUsers() {
+        return userClient.getUsers();
+    }
+
 }

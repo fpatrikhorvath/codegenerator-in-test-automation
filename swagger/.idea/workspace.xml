@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdf95522-dff0-42dc-87cb-6bc567c36f5f" name="Changes" comment="config.json setup and impl, Makefile creation, from pom generation -&gt; via jar file generation,">
-      <change afterPath="$PROJECT_DIR$/../regression/src/main/resources/log4j2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../regression/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../regression/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/rest/model/ContextUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/rest/model/ContextUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/context/IScenarioContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/context/ScenarioContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/runner/TestRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/TestCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/TestCore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/rest/RestClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/rest/RestClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/rest/clients/UserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/rest/clients/UserClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/service/IUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/stepdef/UserSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/stepdef/UserSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../regression/src/main/resources/features/CreateUser.feature" beforeDir="false" afterPath="$PROJECT_DIR$/../regression/src/main/resources/features/CreateUser.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,12 +44,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "codegen-implementation"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;codegen-implementation&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
