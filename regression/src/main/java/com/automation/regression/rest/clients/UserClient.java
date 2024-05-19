@@ -7,20 +7,19 @@ import org.openapitools.api.UserApi;
 import org.openapitools.model.CreateUser201Response;
 import org.openapitools.model.CreateUserRequest;
 import org.openapitools.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 @ScenarioScope
 public class UserClient implements UserApi {
+    private static final String CREATE_USER_PATH = "/users";
     private final UserLayerConfig userLayerConfig;
     private final RestClient restClient;
-    private static final String CREATE_USER_PATH = "/users";
 
     public UserClient(final UserLayerConfig userLayerConfig) {
         this.userLayerConfig = userLayerConfig;
