@@ -16,6 +16,7 @@ import org.springframework.test.context.ContextConfiguration;
 @Primary
 @ScenarioScope
 public class TestCore {
+    protected final String responseCodeCheckMessage = "Expected response code (%d) does not match with actual (%d)";
     private final UserLayerContextStore userLayerContextStore;
 
     public TestCore(final UserLayerContextStore userLayerContextStore) {

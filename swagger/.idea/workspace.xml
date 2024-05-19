@@ -5,56 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdf95522-dff0-42dc-87cb-6bc567c36f5f" name="Changes" comment="config.json setup and impl, Makefile creation, from pom generation -&gt; via jar file generation,">
-      <change afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/TestCore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/config/UserLayerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/rest/clients/BookClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/rest/clients/UserClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/service/IUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/stepdef/UserSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/stores/UserLayerContextStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../regression/src/main/resources/application-dev.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../regression/src/main/resources/spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../regression/src/main/resources/user-layer.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../swagger-generated/.openapi-generator-ignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../swagger-generated/.openapi-generator/FILES" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../swagger-generated/.openapi-generator/VERSION" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../swagger-generated/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../swagger-generated/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../swagger-generated/src/main/java/org/openapitools/api/BookApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../swagger-generated/src/main/java/org/openapitools/api/UserApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../swagger-generated/src/main/java/org/openapitools/configuration/HttpInterfacesAbstractConfigurator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../swagger-generated/src/main/java/org/openapitools/model/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../swagger-generated/src/main/java/org/openapitools/model/CreateBookForUser404Response.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../swagger-generated/src/main/java/org/openapitools/model/CreateBookForUserRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../swagger-generated/src/main/java/org/openapitools/model/CreateUser201Response.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../swagger-generated/src/main/java/org/openapitools/model/CreateUserRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../swagger-generated/src/main/java/org/openapitools/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../regression/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../regression/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/RegressionApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/context/IScenarioContext.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/context/ScenarioContext.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/rest/RestClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/rest/RestClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../regression/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../regression/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../regression/src/main/resources/features/CreateUser.feature" beforeDir="false" afterPath="$PROJECT_DIR$/../regression/src/main/resources/features/CreateUser.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/swagger.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/../swagger.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.openapi-generator-ignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.openapi-generator/FILES" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.openapi-generator/VERSION" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openapitools/api/BookApiApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openapitools/api/UserApiApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openapitools/configuration/HttpInterfacesAbstractConfigurator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openapitools/model/Book.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openapitools/model/CreateBookForUser404Response.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openapitools/model/CreateBookForUserRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openapitools/model/CreateUser201Response.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openapitools/model/CreateUserRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openapitools/model/User.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/rest/model/ContextUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/service/RandomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/TestCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/TestCore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/service/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/stepdef/UserSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/../regression/src/main/java/com/automation/regression/stepdef/UserSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../regression/src/main/resources/user-layer.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../regression/src/main/resources/user-layer.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
