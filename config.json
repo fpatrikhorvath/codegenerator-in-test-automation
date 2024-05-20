@@ -6,6 +6,5 @@
   "library": "spring-http-interface",
   "dateLibrary": "java17",
   "annotationLibrary": "swagger1",
-  "generateSupportingFiles": false,
-  "ignoreAnyOfInEnum": true
+  "generateSupportingFiles": false
 }

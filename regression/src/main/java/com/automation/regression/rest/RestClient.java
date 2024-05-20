@@ -55,6 +55,18 @@ public class RestClient {
         return response;
     }
 
+    public <T> ResponseEntity<T> delete(final String endpoint, final Class<T> clazz) {
+        logCurl("DELETE", endpoint, null);
+        ResponseEntity<T> response = webClient
+                .delete()
+                .uri(endpoint)
+                .retrieve()
+                .toEntity(clazz)
+                .block();
+        //logger.debug("Response: {}", response);
+        System.out.println("Response: " + response);
+        return response;
+    }
     private void logCurl(final String requestType, final String endpoint, final Object body) {
         StringBuilder curlCommand = new StringBuilder("curl -X ").append(requestType).append(" ");
 

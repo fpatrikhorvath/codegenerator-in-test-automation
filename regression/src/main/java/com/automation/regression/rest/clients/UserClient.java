@@ -11,6 +11,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ import java.util.List;
 public class UserClient implements UserApi {
     private static final String CREATE_USER_PATH = "/users";
     private static final String GET_USER_PATH = "/users";
+    private static final String DELETE_USER_PATH = "/users/{userId}";
 
     private final UserLayerConfig userLayerConfig;
     private final RestClient restClient;
@@ -37,11 +39,12 @@ public class UserClient implements UserApi {
 
     @Override
     public ResponseEntity<Void> deleteUser(final Long userId) {
-        return null;
+        String endpoint = StringUtils.replace(DELETE_USER_PATH, "{userId}", String.valueOf(userId));
+        return restClient.delete(endpoint, Void.class);
     }
 
     @Override
     public ResponseEntity<List<User>> getUsers() {
-        return restClient.getList(CREATE_USER_PATH, User.class);
+        return restClient.getList(GET_USER_PATH, User.class);
     }
 }
