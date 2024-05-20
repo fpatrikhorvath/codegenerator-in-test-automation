@@ -25,7 +25,9 @@ public class UserSteps extends TestCore {
     }
 
     @Given("(create )a new user of status {word} and store it as {word} -> {}")
-    public void createANewUserOfTypeAndStoreItAs(final String statusString, final String contextId, final HttpStatus httpStatus) {
+    public void createANewUserOfTypeAndStoreItAs
+            (final String statusString, final String contextId, final HttpStatus httpStatus) {
+
         ContextUser user = getUserService().initContextUser(contextId, statusString);
 
         ResponseEntity<CreateUser201Response> response = getUserService().registerUser(user);
@@ -40,18 +42,18 @@ public class UserSteps extends TestCore {
 
     @Then("verify that {word} user exists")
     public void verifyThatUserExists(final String contextId) {
-        ContextUser user = (ContextUser) scenarioContext.getContextObject(contextId);
+        ContextUser expUser = (ContextUser) scenarioContext.getContextObject(contextId);
 
         ResponseEntity<List<User>> response = getUserService().getUsers();
         assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(HttpStatus.OK));
 
         User actUser = Objects.requireNonNull(response.getBody())
                 .stream()
-                .filter(u -> Objects.equals(u.getName(), user.getName()))
+                .filter(u -> Objects.equals(u.getName(), expUser.getName()))
                 .findFirst()
                 .orElse(null);
-        //TODO: fix verification
-        assertEquals(user, actUser);
+
+        assertEquals(expUser, actUser);
     }
 
     @When("delete {word} user -> {}")
@@ -73,6 +75,7 @@ public class UserSteps extends TestCore {
                 .filter(u -> Objects.equals(u.getName(), user.getName()))
                 .findFirst()
                 .orElse(null);
+
         assertNull(actUser);
     }
 }

@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
         features = {"classpath:features"},
-        glue = {"com.automation.regression.stepdef"},
+        glue = {"com.automation.regression"},
         tags = "not @ignored",
         plugin = "html:target/report.html"
 )

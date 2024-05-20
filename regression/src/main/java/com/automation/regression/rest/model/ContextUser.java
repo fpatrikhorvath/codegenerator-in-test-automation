@@ -3,7 +3,7 @@ package com.automation.regression.rest.model;
 import org.openapitools.model.User;
 
 public class ContextUser extends User {
-    private String contextId;
+    private String contextId = null;
 
     public ContextUser() {
     }
@@ -11,5 +11,4 @@ public class ContextUser extends User {
     public void setContextId(final String contextId) {
         this.contextId = contextId;
     }
-
 }

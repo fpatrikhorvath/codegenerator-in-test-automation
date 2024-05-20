@@ -67,6 +67,7 @@ public class RestClient {
         System.out.println("Response: " + response);
         return response;
     }
+
     private void logCurl(final String requestType, final String endpoint, final Object body) {
         StringBuilder curlCommand = new StringBuilder("curl -X ").append(requestType).append(" ");
 
