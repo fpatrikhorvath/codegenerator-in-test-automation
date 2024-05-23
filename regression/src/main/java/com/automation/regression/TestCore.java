@@ -1,6 +1,7 @@
 package com.automation.regression;
 
 import com.automation.regression.context.ScenarioContext;
+import com.automation.regression.service.BookService;
 import com.automation.regression.service.UserService;
 import com.automation.regression.stores.UserLayerContextStore;
 import io.cucumber.spring.CucumberContextConfiguration;
@@ -27,4 +28,9 @@ public class TestCore {
     protected UserService getUserService() {
         return userLayerContextStore.getUserService();
     }
+
+    protected BookService getBookService() {
+        return userLayerContextStore.getBookService();
+    }
+
 }

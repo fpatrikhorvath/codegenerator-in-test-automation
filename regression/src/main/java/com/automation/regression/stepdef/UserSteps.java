@@ -40,7 +40,7 @@ public class UserSteps extends TestCore {
         scenarioContext.storeContextObject(contextId, user);
     }
 
-    @Then("verify that {word} user exists")
+    @Then("verify that user {word} exists")
     public void verifyThatUserExists(final String contextId) {
         ContextUser expUser = (ContextUser) scenarioContext.getContextObject(contextId);
 
@@ -56,14 +56,14 @@ public class UserSteps extends TestCore {
         assertEquals(expUser, actUser);
     }
 
-    @When("delete {word} user -> {}")
+    @When("delete user {word} -> {}")
     public void deleteUser(final String contextId, final HttpStatus httpStatus) {
         ContextUser user = (ContextUser) scenarioContext.getContextObject(contextId);
         ResponseEntity<Void> response = getUserService().deleteUser(user.getId());
         assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(httpStatus));
     }
 
-    @Then("verify that {word} user does not exist")
+    @Then("verify that user {word} does not exist")
     public void verifyThatUserDoesNotExist(final String contextId) {
         ContextUser user = (ContextUser) scenarioContext.getContextObject(contextId);
 
@@ -78,4 +78,5 @@ public class UserSteps extends TestCore {
 
         assertNull(actUser);
     }
+
 }
