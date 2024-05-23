@@ -53,7 +53,7 @@ public class UserSteps extends TestCore {
                 .findFirst()
                 .orElse(null);
 
-        assertEquals(expUser, actUser);
+        getUserVerifyService().verifyUser(expUser, actUser);
     }
 
     @When("delete user {word} -> {}")

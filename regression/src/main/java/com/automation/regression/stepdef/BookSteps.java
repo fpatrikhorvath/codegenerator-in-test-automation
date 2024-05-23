@@ -14,8 +14,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 import java.util.Objects;
 
-import static org.testng.AssertJUnit.assertNull;
-import static org.testng.AssertJUnit.assertTrue;
+import static org.testng.AssertJUnit.*;
 
 public class BookSteps extends TestCore {
     //private static final Logger LOG = LogManager.getLogger(UserSteps.class);
@@ -32,6 +31,9 @@ public class BookSteps extends TestCore {
         ResponseEntity<Book> response = getBookService().registerBook(book);
         assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(httpStatus));
 
+        if (response.getStatusCode().isSameCodeAs(HttpStatus.CREATED)) {
+            book.setId(Objects.requireNonNull(response.getBody()).getId());
+        }
         scenarioContext.storeContextObject(bookId, book);
     }
 
@@ -65,7 +67,8 @@ public class BookSteps extends TestCore {
                 .findFirst()
                 .orElse(null);
 
-
+        assert actBook != null;
+        getBookVerifyService().verifyBook(book, actBook);
     }
 
     @When("delete book {word} for user {word} -> {}")
@@ -75,7 +78,6 @@ public class BookSteps extends TestCore {
 
         ResponseEntity<Void> response = getBookService().deleteBook(user, book);
         assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(httpStatus));
-
     }
 
 }

@@ -5,6 +5,5 @@
   "hideGenerationTimestamp": true,
   "library": "spring-http-interface",
   "dateLibrary": "java17",
-  "annotationLibrary": "swagger1",
-  "generateSupportingFiles": false
+  "annotationLibrary": "swagger3"
 }
