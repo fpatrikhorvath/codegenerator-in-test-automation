@@ -7,7 +7,6 @@ import org.apache.logging.log4j.Logger;
 import org.openapitools.model.User;
 import org.springframework.stereotype.Service;
 
-
 import static org.testng.AssertJUnit.assertEquals;
 
 @Service

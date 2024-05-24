@@ -1,4 +1,4 @@
-package com.automation.regression;
+package com.automation.regression.stepdef;
 
 import com.automation.regression.context.ScenarioContext;
 import com.automation.regression.service.BookService;
@@ -35,6 +35,7 @@ public class TestCore {
     public UserVerifyService getUserVerifyService() {
         return userLayerContextStore.getUserVerifyService();
     }
+
     protected BookService getBookService() {
         return userLayerContextStore.getBookService();
     }

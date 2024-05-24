@@ -1,6 +1,5 @@
 package com.automation.regression.stepdef;
 
-import com.automation.regression.TestCore;
 import com.automation.regression.context.ScenarioContext;
 import com.automation.regression.rest.model.ContextUser;
 import com.automation.regression.stores.UserLayerContextStore;
@@ -15,7 +14,8 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 import java.util.Objects;
 
-import static org.testng.AssertJUnit.*;
+import static org.testng.AssertJUnit.assertNull;
+import static org.testng.AssertJUnit.assertTrue;
 
 public class UserSteps extends TestCore {
     //private static final Logger LOG = LogManager.getLogger(UserSteps.class);
