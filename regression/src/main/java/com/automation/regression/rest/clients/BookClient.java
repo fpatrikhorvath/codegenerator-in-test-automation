@@ -5,6 +5,7 @@ import com.automation.regression.rest.RestClient;
 import io.cucumber.spring.ScenarioScope;
 import org.openapitools.api.BookApi;
 import org.openapitools.model.Book;
+import org.openapitools.model.CreateBookForUser404Response;
 import org.openapitools.model.CreateBookForUserRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -36,6 +37,11 @@ public class BookClient implements BookApi {
         return restClient.post(endpoint, body, Book.class);
     }
 
+    public ResponseEntity<CreateBookForUser404Response> registerBook4xxAnd5xx(final Long userId, final CreateBookForUserRequest body) {
+        String endpoint = StringUtils.replace(POST_BOOK_PATH, "{userId}", String.valueOf(userId));
+        return restClient.post(endpoint, body, CreateBookForUser404Response.class);
+    }
+
     @Override
     public ResponseEntity<Void> deleteBookForUser(final Long userId, final Long bookId) {
         String endpoint = StringUtils
@@ -50,5 +56,4 @@ public class BookClient implements BookApi {
                 .replace(GET_BOOK_PATH, "{userId}", String.valueOf(userId));
         return restClient.getList(endpoint, Book.class);
     }
-
 }

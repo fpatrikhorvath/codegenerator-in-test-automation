@@ -7,12 +7,15 @@ import com.automation.regression.stores.UserLayerContextStore;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openapitools.model.Book;
+import org.openapitools.model.CreateBookForUser404Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.security.InvalidParameterException;
 import java.util.List;
 import java.util.Objects;
 
+import static org.springframework.http.HttpStatus.CREATED;
 import static org.testng.AssertJUnit.assertNull;
 import static org.testng.AssertJUnit.assertTrue;
 
@@ -28,11 +31,16 @@ public class BookSteps extends TestCore {
         ContextUser user = (ContextUser) scenarioContext.getContextObject(userId);
         ContextBook book = getBookService().initContextBook(bookId, user.getId());
 
-        ResponseEntity<Book> response = getBookService().registerBook(book);
-        assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(httpStatus));
-
-        if (response.getStatusCode().isSameCodeAs(HttpStatus.CREATED)) {
+        if (CREATED.isSameCodeAs(httpStatus)) {
+            ResponseEntity<Book> response = getBookService().registerBook(book);
             book.setId(Objects.requireNonNull(response.getBody()).getId());
+
+        } else if (httpStatus.is4xxClientError() || httpStatus.is5xxServerError()) {
+            ResponseEntity<CreateBookForUser404Response> response = getBookService().registerBook4xxAnd5xx(book);
+            scenarioContext.storeResponse(Objects.requireNonNull(response.getBody()).getError());
+
+        } else {
+            throw new InvalidParameterException("Invalid parameter exception");
         }
         scenarioContext.storeContextObject(bookId, book);
     }

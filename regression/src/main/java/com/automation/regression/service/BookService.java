@@ -7,6 +7,7 @@ import io.cucumber.spring.ScenarioScope;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openapitools.model.Book;
+import org.openapitools.model.CreateBookForUser404Response;
 import org.openapitools.model.CreateBookForUserRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -56,5 +57,15 @@ public class BookService {
 
     public ResponseEntity<Void> deleteBook(final ContextUser user, final ContextBook book) {
         return bookClient.deleteBookForUser(user.getId(), book.getUserId());
+    }
+
+
+    public ResponseEntity<CreateBookForUser404Response> registerBook4xxAnd5xx(final ContextBook book) {
+
+        CreateBookForUserRequest body = new CreateBookForUserRequest();
+        body.setAuthor(book.getAuthor());
+        body.setTitle(book.getTitle());
+
+        return bookClient.registerBook4xxAnd5xx(book.getUserId(), body);
     }
 }

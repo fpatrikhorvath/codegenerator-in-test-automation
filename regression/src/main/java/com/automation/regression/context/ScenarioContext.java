@@ -1,5 +1,6 @@
 package com.automation.regression.context;
 
+import com.automation.regression.rest.ResponseErrorEnum;
 import io.cucumber.spring.ScenarioScope;
 import org.springframework.stereotype.Component;
 
@@ -9,6 +10,7 @@ import java.util.HashMap;
 @ScenarioScope
 public class ScenarioContext {
     private final HashMap<String, Object> contextObjectMap = new HashMap<>();
+    private ResponseErrorEnum response = null;
 
     public ScenarioContext() {
     }
@@ -21,4 +23,12 @@ public class ScenarioContext {
         return contextObjectMap.get(key);
     }
 
+    public ResponseErrorEnum getResponse() {
+        return response;
+    }
+
+    public void storeResponse(final String response) {
+        this.response = ResponseErrorEnum.getByMessage(response);
+        ;
+    }
 }
