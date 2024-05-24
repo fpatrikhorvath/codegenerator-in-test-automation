@@ -79,5 +79,4 @@ public class BookSteps extends TestCore {
         ResponseEntity<Void> response = getBookService().deleteBook(user, book);
         assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(httpStatus));
     }
-
 }

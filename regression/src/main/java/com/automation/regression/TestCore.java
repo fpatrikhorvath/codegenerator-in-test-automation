@@ -7,6 +7,7 @@ import com.automation.regression.service.UserService;
 import com.automation.regression.service.UserVerifyService;
 import com.automation.regression.stores.UserLayerContextStore;
 import io.cucumber.spring.CucumberContextConfiguration;
+import io.cucumber.spring.ScenarioScope;
 import org.springframework.boot.test.context.SpringBootContextLoader;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Primary;
@@ -16,6 +17,7 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(loader = SpringBootContextLoader.class, value = {"classpath:spring.xml"})
 @SpringBootTest(classes = TestCore.class)
 @Primary
+@ScenarioScope
 public class TestCore {
     protected static final String RESPONSE_CODE_CHECK_MESSAGE = "Expected response code does not match with actual.";
     protected final ScenarioContext scenarioContext;
