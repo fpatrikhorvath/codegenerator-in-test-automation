@@ -56,4 +56,8 @@ public class UserService {
         return userClient.getUsers();
     }
 
+
+    public ResponseEntity<Void> deleteUser(final Long userId) {
+        return userClient.deleteUser(userId);
+    }
 }

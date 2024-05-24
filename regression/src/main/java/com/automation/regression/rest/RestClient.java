@@ -30,25 +30,36 @@ public class RestClient {
 
     public <T> ResponseEntity<List<T>> getList(final String endpoint, final Class<T> clazz) {
         logCurl("GET", endpoint, null);
+
         ResponseEntity<List<T>> response = webClient
                 .get()
                 .uri(endpoint)
-                .retrieve()
-                .toEntityList(clazz)
-                .blockOptional()
-                .orElse(ResponseEntity.notFound().build());
+                .exchangeToMono(clientResponse -> clientResponse.toEntityList(clazz))
+                .block();
+
         logger.debug("Response: {}", response);
         return response;
     }
 
     public <T> ResponseEntity<T> post(final String endpoint, final Object body, final Class<T> clazz) {
         logCurl("POST", endpoint, body);
+
         ResponseEntity<T> response = webClient
                 .post()
                 .uri(endpoint)
                 .bodyValue(body)
-                .retrieve()
-                .toEntity(clazz)
+                .exchangeToMono(clientResponse -> clientResponse.toEntity(clazz))
+                .block();
+        System.out.println("Response: " + response);
+        return response;
+    }
+
+    public <T> ResponseEntity<T> delete(final String endpoint, final Class<T> clazz) {
+        logCurl("DELETE", endpoint, null);
+        ResponseEntity<T> response = webClient
+                .delete()
+                .uri(endpoint)
+                .exchangeToMono(clientResponse -> clientResponse.toEntity(clazz))
                 .block();
         //logger.debug("Response: {}", response);
         System.out.println("Response: " + response);

@@ -1,11 +1,11 @@
 package com.automation.regression.rest.model;
 
-import org.openapitools.model.User;
+import org.openapitools.model.Book;
 
-public class ContextUser extends User {
+public class ContextBook extends Book {
     private String contextId = null;
 
-    public ContextUser() {
+    public ContextBook() {
     }
 
     public void setContextId(final String contextId) {
