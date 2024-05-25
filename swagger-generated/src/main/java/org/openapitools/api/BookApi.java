@@ -29,7 +29,7 @@ public interface BookApi {
      * @param createBookForUserRequest  (required)
      * @return Book created successfully (status code 201)
      *         or User not found (status code 404)
-     *         or internall error (status code 500)
+     *         or Internal error (status code 500)
      */
     @HttpExchange(
         method = "POST",

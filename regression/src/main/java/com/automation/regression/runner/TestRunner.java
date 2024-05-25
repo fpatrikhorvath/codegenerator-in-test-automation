@@ -7,7 +7,7 @@ import org.testng.annotations.DataProvider;
 @CucumberOptions(
         features = {"classpath:features"},
         glue = {"com.automation.regression.stepdef"},
-        tags = "not @ignored and not @bug",
+        tags = "not @bug",
         plugin = "html:target/report.html"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {

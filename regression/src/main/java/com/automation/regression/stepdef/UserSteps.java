@@ -1,7 +1,6 @@
 package com.automation.regression.stepdef;
 
 import com.automation.regression.context.ScenarioContext;
-import com.automation.regression.rest.model.ContextUser;
 import com.automation.regression.stores.UserLayerContextStore;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,8 +13,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 import java.util.Objects;
 
-import static org.testng.AssertJUnit.assertNull;
-import static org.testng.AssertJUnit.assertTrue;
+import static org.testng.AssertJUnit.*;
 
 public class UserSteps extends TestCore {
     //private static final Logger LOG = LogManager.getLogger(UserSteps.class);
@@ -28,7 +26,7 @@ public class UserSteps extends TestCore {
     public void createANewUserOfTypeAndStoreItAs
             (final String statusString, final String contextId, final HttpStatus httpStatus) {
 
-        ContextUser user = getUserService().initContextUser(contextId, statusString);
+        User user = getUserService().initContextUser(statusString);
 
         ResponseEntity<CreateUser201Response> response = getUserService().registerUser(user);
         assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(httpStatus));
@@ -42,7 +40,7 @@ public class UserSteps extends TestCore {
 
     @Then("verify that user {word} exists")
     public void verifyThatUserExists(final String contextId) {
-        ContextUser expUser = (ContextUser) scenarioContext.getContextObject(contextId);
+        User expUser = (User) scenarioContext.getContextObject(contextId);
 
         ResponseEntity<List<User>> response = getUserService().getUsers();
         assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(HttpStatus.OK));
@@ -53,19 +51,19 @@ public class UserSteps extends TestCore {
                 .findFirst()
                 .orElse(null);
 
-        getUserVerifyService().verifyUser(expUser, actUser);
+        assertEquals(actUser, expUser);
     }
 
     @When("delete user {word} -> {}")
     public void deleteUser(final String contextId, final HttpStatus httpStatus) {
-        ContextUser user = (ContextUser) scenarioContext.getContextObject(contextId);
+        User user = (User) scenarioContext.getContextObject(contextId);
         ResponseEntity<Void> response = getUserService().deleteUser(user.getId());
         assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(httpStatus));
     }
 
     @Then("verify that user {word} does not exist")
     public void verifyThatUserDoesNotExist(final String contextId) {
-        ContextUser user = (ContextUser) scenarioContext.getContextObject(contextId);
+        User user = (User) scenarioContext.getContextObject(contextId);
 
         ResponseEntity<List<User>> response = getUserService().getUsers();
         assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(HttpStatus.OK));
