@@ -21,7 +21,7 @@ import jakarta.annotation.Generated;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.5.0")
 public class CreateBookForUser404Response {
 
-  private String error;
+  protected String error;
 
   public CreateBookForUser404Response error(String error) {
     this.error = error;
