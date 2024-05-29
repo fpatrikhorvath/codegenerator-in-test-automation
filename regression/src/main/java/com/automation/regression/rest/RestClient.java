@@ -37,6 +37,19 @@ public class RestClient extends HttpInterfacesAbstractConfigurator {
         return response;
     }
 
+    public <T> ResponseEntity<T> get(final String endpoint, final Class<T> clazz) {
+        logCurl("GET", endpoint, null);
+
+        ResponseEntity<T> response = webClient
+                .get()
+                .uri(endpoint)
+                .exchangeToMono(clientResponse -> clientResponse.toEntity(clazz))
+                .block();
+
+        logger.debug("Response: {}", response);
+        return response;
+    }
+
     public <T> ResponseEntity<T> post(final String endpoint, final Object body, final Class<T> clazz) {
         logCurl("POST", endpoint, body);
 

@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import jakarta.validation.constraints.NotNull;
@@ -13,15 +14,14 @@ import java.util.*;
 import jakarta.annotation.Generated;
 
 /**
- * Book
+ * CreateBookForUserRequestDTO
  */
+import org.openapitools.model.GenericErrorResponse;
 
+
+@JsonTypeName("createBookForUser_request")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.5.0")
-public class Book {
-
-  protected Long id = null;
-
-  protected Long userId = null;
+public class CreateBookForUserRequestDTO {
 
   protected String title;
 
@@ -30,49 +30,11 @@ public class Book {
   /**
    * Constructor 
    */
-  public Book() {
+  public CreateBookForUserRequestDTO() {
 
   }
 
-  public Book id(Long id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Get id
-   * @return id
-  */
-  @NotNull
-  @JsonProperty("id")
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public Book userId(Long userId) {
-    this.userId = userId;
-    return this;
-  }
-
-  /**
-   * Get userId
-   * @return userId
-  */
-  @NotNull
-  @JsonProperty("userId")
-  public Long getUserId() {
-    return userId;
-  }
-
-  public void setUserId(Long userId) {
-    this.userId = userId;
-  }
-
-  public Book title(String title) {
+  public CreateBookForUserRequestDTO title(String title) {
     this.title = title;
     return this;
   }
@@ -91,7 +53,7 @@ public class Book {
     this.title = title;
   }
 
-  public Book author(String author) {
+  public CreateBookForUserRequestDTO author(String author) {
     this.author = author;
     return this;
   }
@@ -118,24 +80,20 @@ public class Book {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Book book = (Book) o;
-    return Objects.equals(this.id, book.id) &&
-        Objects.equals(this.userId, book.userId) &&
-        Objects.equals(this.title, book.title) &&
-        Objects.equals(this.author, book.author);
+    CreateBookForUserRequestDTO createBookForUserRequest = (CreateBookForUserRequestDTO) o;
+    return Objects.equals(this.title, createBookForUserRequest.title) &&
+        Objects.equals(this.author, createBookForUserRequest.author);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, userId, title, author);
+    return Objects.hash(title, author);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Book {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("class CreateBookForUserRequestDTO {\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("}");

@@ -4,9 +4,10 @@ import com.automation.regression.config.UserLayerConfig;
 import com.automation.regression.rest.RestClient;
 import io.cucumber.spring.ScenarioScope;
 import org.openapitools.api.UserApi;
-import org.openapitools.model.CreateUser201Response;
-import org.openapitools.model.CreateUserRequest;
-import org.openapitools.model.User;
+import org.openapitools.model.CreateUser201ResponseDTO;
+import org.openapitools.model.CreateUserRequestDTO;
+import org.openapitools.model.GenericErrorResponse;
+import org.openapitools.model.UserDTO;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -33,8 +34,14 @@ public class UserClient implements UserApi {
     }
 
     @Override
-    public ResponseEntity<CreateUser201Response> createUser(final CreateUserRequest body) {
-        return restClient.post(CREATE_USER_PATH, body, CreateUser201Response.class);
+    public ResponseEntity<CreateUser201ResponseDTO> createUser(final CreateUserRequestDTO body) {
+        return restClient.post(CREATE_USER_PATH, body, CreateUser201ResponseDTO.class);
+    }
+
+
+    @Override
+    public ResponseEntity<GenericErrorResponse> createUserNeg(final CreateUserRequestDTO body) {
+        return restClient.post(CREATE_USER_PATH, body, GenericErrorResponse.class);
     }
 
     @Override
@@ -44,7 +51,18 @@ public class UserClient implements UserApi {
     }
 
     @Override
-    public ResponseEntity<List<User>> getUsers() {
-        return restClient.getList(GET_USER_PATH, User.class);
+    public ResponseEntity<GenericErrorResponse> deleteUserNeg(final Long userId) {
+        String endpoint = StringUtils.replace(DELETE_USER_PATH, "{userId}", String.valueOf(userId));
+        return restClient.delete(endpoint, GenericErrorResponse.class);
+    }
+
+    @Override
+    public ResponseEntity<List<UserDTO>> getUsers() {
+        return restClient.getList(GET_USER_PATH, UserDTO.class);
+    }
+
+    @Override
+    public ResponseEntity<GenericErrorResponse> getUsersNeg() {
+        return restClient.get(GET_USER_PATH, GenericErrorResponse.class);
     }
 }

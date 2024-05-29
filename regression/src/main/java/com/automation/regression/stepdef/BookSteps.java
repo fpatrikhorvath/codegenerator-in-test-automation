@@ -1,12 +1,12 @@
 package com.automation.regression.stepdef;
 
 import com.automation.regression.context.ScenarioContext;
-import com.automation.regression.rest.model.GenericErrorResponse;
 import com.automation.regression.stores.UserLayerContextStore;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openapitools.model.Book;
-import org.openapitools.model.User;
+import org.openapitools.model.BookDTO;
+import org.openapitools.model.GenericErrorResponse;
+import org.openapitools.model.UserDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -27,11 +27,11 @@ public class BookSteps extends TestCore {
     @When("(create )a new book for user {word} and store it as {word} -> {}")
     public void createANewBookForUserAndStoreItAs
             (final String userId, final String bookId, final HttpStatus httpStatus) {
-        User user = (User) scenarioContext.getContextObject(userId);
-        Book book = getBookService().initContextBook(user.getId());
+        UserDTO user = (UserDTO) scenarioContext.getContextObject(userId);
+        BookDTO book = getBookService().initContextBook(user.getId());
 
         if (CREATED.isSameCodeAs(httpStatus)) {
-            ResponseEntity<Book> response = getBookService().registerBook(book);
+            ResponseEntity<BookDTO> response = getBookService().registerBook(book);
             assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(httpStatus));
             book.setId(Objects.requireNonNull(response.getBody()).getId());
 
@@ -49,12 +49,12 @@ public class BookSteps extends TestCore {
 
     @Then("verify that book {word} does not exist")
     public void verifyThatBookDoesNotExist(final String bookId) {
-        Book book = (Book) scenarioContext.getContextObject(bookId);
+        BookDTO book = (BookDTO) scenarioContext.getContextObject(bookId);
 
-        ResponseEntity<List<Book>> response = getBookService().getBooks(book);
+        ResponseEntity<List<BookDTO>> response = getBookService().getBooks(book);
         assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(HttpStatus.OK));
 
-        Book actBook = Objects.requireNonNull(response.getBody())
+        BookDTO actBook = Objects.requireNonNull(response.getBody())
                 .stream()
                 .filter(b -> Objects.equals(b.getTitle(), book.getTitle()))
                 .findFirst()
@@ -65,12 +65,12 @@ public class BookSteps extends TestCore {
 
     @Then("verify that book {word} exist")
     public void verifyThatBookExist(final String bookId) {
-        Book expBook = (Book) scenarioContext.getContextObject(bookId);
+        BookDTO expBook = (BookDTO) scenarioContext.getContextObject(bookId);
 
-        ResponseEntity<List<Book>> response = getBookService().getBooks(expBook);
+        ResponseEntity<List<BookDTO>> response = getBookService().getBooks(expBook);
         assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(HttpStatus.OK));
 
-        Book actBook = Objects.requireNonNull(response.getBody())
+        BookDTO actBook = Objects.requireNonNull(response.getBody())
                 .stream()
                 .filter(b -> Objects.equals(b.getTitle(), expBook.getTitle()))
                 .findFirst()
@@ -82,8 +82,8 @@ public class BookSteps extends TestCore {
 
     @When("delete book {word} for user {word} -> {}")
     public void deleteBook(final String bookId, final String userId, final HttpStatus httpStatus) {
-        User user = (User) scenarioContext.getContextObject(userId);
-        Book book = (Book) scenarioContext.getContextObject(bookId);
+        UserDTO user = (UserDTO) scenarioContext.getContextObject(userId);
+        BookDTO book = (BookDTO) scenarioContext.getContextObject(bookId);
 
         ResponseEntity<Void> response = getBookService().deleteBook(user, book);
         assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(httpStatus));

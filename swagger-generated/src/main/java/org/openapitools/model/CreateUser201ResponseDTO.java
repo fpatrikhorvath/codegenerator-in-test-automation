@@ -15,12 +15,14 @@ import java.util.*;
 import jakarta.annotation.Generated;
 
 /**
- * CreateUser201Response
+ * CreateUser201ResponseDTO
  */
+import org.openapitools.model.GenericErrorResponse;
+
 
 @JsonTypeName("createUser_201_response")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.5.0")
-public class CreateUser201Response {
+public class CreateUser201ResponseDTO {
 
   protected Long id = null;
 
@@ -67,7 +69,7 @@ public class CreateUser201Response {
 
   protected StatusEnum status;
 
-  public CreateUser201Response id(Long id) {
+  public CreateUser201ResponseDTO id(Long id) {
     this.id = id;
     return this;
   }
@@ -86,7 +88,7 @@ public class CreateUser201Response {
     this.id = id;
   }
 
-  public CreateUser201Response name(String name) {
+  public CreateUser201ResponseDTO name(String name) {
     this.name = name;
     return this;
   }
@@ -105,7 +107,7 @@ public class CreateUser201Response {
     this.name = name;
   }
 
-  public CreateUser201Response email(String email) {
+  public CreateUser201ResponseDTO email(String email) {
     this.email = email;
     return this;
   }
@@ -124,7 +126,7 @@ public class CreateUser201Response {
     this.email = email;
   }
 
-  public CreateUser201Response status(StatusEnum status) {
+  public CreateUser201ResponseDTO status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -151,7 +153,7 @@ public class CreateUser201Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateUser201Response createUser201Response = (CreateUser201Response) o;
+    CreateUser201ResponseDTO createUser201Response = (CreateUser201ResponseDTO) o;
     return Objects.equals(this.id, createUser201Response.id) &&
         Objects.equals(this.name, createUser201Response.name) &&
         Objects.equals(this.email, createUser201Response.email) &&
@@ -166,7 +168,7 @@ public class CreateUser201Response {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateUser201Response {\n");
+    sb.append("class CreateUser201ResponseDTO {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
