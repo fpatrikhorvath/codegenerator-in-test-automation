@@ -2,9 +2,7 @@ package com.automation.regression.stepdef;
 
 import com.automation.regression.context.ScenarioContext;
 import com.automation.regression.service.BookService;
-import com.automation.regression.service.BookVerifyService;
 import com.automation.regression.service.UserService;
-import com.automation.regression.service.UserVerifyService;
 import com.automation.regression.stores.UserLayerContextStore;
 import io.cucumber.spring.CucumberContextConfiguration;
 import io.cucumber.spring.ScenarioScope;
@@ -33,15 +31,7 @@ public class TestCore {
         return userLayerContextStore.getUserService();
     }
 
-    public UserVerifyService getUserVerifyService() {
-        return userLayerContextStore.getUserVerifyService();
-    }
-
     protected BookService getBookService() {
         return userLayerContextStore.getBookService();
-    }
-
-    public BookVerifyService getBookVerifyService() {
-        return userLayerContextStore.getBookVerifyService();
     }
 }

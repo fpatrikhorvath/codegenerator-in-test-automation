@@ -29,14 +29,8 @@ public interface BookApi {
      * @param createBookForUserRequest  (required)
      * @return Book created successfully (status code 201)
      *         or User not found (status code 404)
-     *         or internall error (status code 500)
+     *         or Internal error (status code 500)
      */
-    @HttpExchange(
-        method = "POST",
-        value = "/users/{userId}/books",
-        accept = { "application/json" },
-        contentType = "application/json"
-    )
     ResponseEntity<Book> createBookForUser(
          @PathVariable("userId") Long userId,
          @RequestBody CreateBookForUserRequest createBookForUserRequest
@@ -50,11 +44,6 @@ public interface BookApi {
      * @param bookId ID of the book to delete (required)
      * @return Book deleted successfully (status code 204)
      */
-    @HttpExchange(
-        method = "DELETE",
-        value = "/users/{userId}/books/{bookId}",
-        accept = { "application/json" }
-    )
     ResponseEntity<Void> deleteBookForUser(
          @PathVariable("userId") Long userId,
          @PathVariable("bookId") Long bookId
@@ -67,11 +56,6 @@ public interface BookApi {
      * @param userId ID of the user to get books for (required)
      * @return List of books for the user (status code 200)
      */
-    @HttpExchange(
-        method = "GET",
-        value = "/users/{userId}/books",
-        accept = { "application/json" }
-    )
     ResponseEntity<List<Book>> getBooksForUser(
          @PathVariable("userId") Long userId
     );

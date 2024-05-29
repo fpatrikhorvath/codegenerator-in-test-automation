@@ -28,12 +28,6 @@ public interface UserApi {
      * @param createUserRequest  (required)
      * @return User created successfully (status code 201)
      */
-    @HttpExchange(
-        method = "POST",
-        value = "/users",
-        accept = { "application/json" },
-        contentType = "application/json"
-    )
     ResponseEntity<CreateUser201Response> createUser(
          @RequestBody CreateUserRequest createUserRequest
     );
@@ -45,11 +39,6 @@ public interface UserApi {
      * @param userId ID of the user to delete (required)
      * @return User deleted successfully (status code 204)
      */
-    @HttpExchange(
-        method = "DELETE",
-        value = "/users/{userId}",
-        accept = { "application/json" }
-    )
     ResponseEntity<Void> deleteUser(
          @PathVariable("userId") Long userId
     );
@@ -60,11 +49,6 @@ public interface UserApi {
      *
      * @return List of users (status code 200)
      */
-    @HttpExchange(
-        method = "GET",
-        value = "/users",
-        accept = { "application/json" }
-    )
     ResponseEntity<List<User>> getUsers(
         
     );

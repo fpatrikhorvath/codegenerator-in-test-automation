@@ -20,11 +20,11 @@ import jakarta.annotation.Generated;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.5.0")
 public class User {
 
-  private Long id = null;
+  protected Long id = null;
 
-  private String name;
+  protected String name;
 
-  private String email;
+  protected String email;
 
   /**
    * Gets or Sets status
@@ -63,20 +63,13 @@ public class User {
     }
   }
 
-  private StatusEnum status;
-
-  public User() {
-    super();
-  }
+  protected StatusEnum status;
 
   /**
-   * Constructor with only required parameters
+   * Constructor 
    */
-  public User(Long id, String name, String email, StatusEnum status) {
-    this.id = id;
-    this.name = name;
-    this.email = email;
-    this.status = status;
+  public User() {
+
   }
 
   public User id(Long id) {

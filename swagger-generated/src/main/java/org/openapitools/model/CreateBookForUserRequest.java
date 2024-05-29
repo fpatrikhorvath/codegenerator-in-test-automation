@@ -21,20 +21,15 @@ import jakarta.annotation.Generated;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.5.0")
 public class CreateBookForUserRequest {
 
-  private String title;
+  protected String title;
 
-  private String author;
-
-  public CreateBookForUserRequest() {
-    super();
-  }
+  protected String author;
 
   /**
-   * Constructor with only required parameters
+   * Constructor 
    */
-  public CreateBookForUserRequest(String title, String author) {
-    this.title = title;
-    this.author = author;
+  public CreateBookForUserRequest() {
+
   }
 
   public CreateBookForUserRequest title(String title) {

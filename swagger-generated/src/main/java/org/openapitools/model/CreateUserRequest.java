@@ -22,9 +22,9 @@ import jakarta.annotation.Generated;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.5.0")
 public class CreateUserRequest {
 
-  private String name;
+  protected String name;
 
-  private String email;
+  protected String email;
 
   /**
    * Gets or Sets status
@@ -63,19 +63,13 @@ public class CreateUserRequest {
     }
   }
 
-  private StatusEnum status;
-
-  public CreateUserRequest() {
-    super();
-  }
+  protected StatusEnum status;
 
   /**
-   * Constructor with only required parameters
+   * Constructor 
    */
-  public CreateUserRequest(String name, String email, StatusEnum status) {
-    this.name = name;
-    this.email = email;
-    this.status = status;
+  public CreateUserRequest() {
+
   }
 
   public CreateUserRequest name(String name) {

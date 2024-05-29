@@ -15,7 +15,7 @@ The Openapi/Swagger code generator can help You generate the DTOs and the reques
 To generate swagger codes from swagger.json:
 
 ```
-$ java -jar openapi-generator-cli.jar generate -i swagger.json -g spring -o swagger-generated/ -c config.json
+$ java -jar openapi-generator-cli.jar generate -i swagger.json -g spring -o swagger-generated -c config.json -t template
 ```
 
 To run the mocked server:

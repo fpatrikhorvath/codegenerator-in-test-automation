@@ -1,7 +1,6 @@
 package com.automation.regression.service;
 
 import com.automation.regression.rest.clients.UserClient;
-import com.automation.regression.rest.model.ContextUser;
 import io.cucumber.spring.ScenarioScope;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,8 +25,8 @@ public class UserService {
         this.randomService = randomService;
     }
 
-    public ContextUser initContextUser(final String contextId, final String statusString) {
-        ContextUser user = new ContextUser();
+    public User initContextUser(final String statusString) {
+        User user = new User();
 
         User.StatusEnum status = User.StatusEnum.valueOf(statusString);
 
@@ -40,7 +39,8 @@ public class UserService {
         return user;
     }
 
-    public ResponseEntity<CreateUser201Response> registerUser(final ContextUser user) {
+    public ResponseEntity<CreateUser201Response> registerUser(final User user) {
+
         CreateUserRequest body = new CreateUserRequest();
 
         CreateUserRequest.StatusEnum status = CreateUserRequest.StatusEnum.valueOf(user.getStatus().toString());
