@@ -51,12 +51,6 @@ public interface {{classname}} {
     {{#isDeprecated}}
     @Deprecated
     {{/isDeprecated}}
-    @HttpExchange(
-        method = "{{{httpMethod}}}",
-        value = "{{{path}}}",
-        accept = { {{#vendorExtensions.x-accepts}}"{{.}}"{{^-last}}, {{/-last}}{{/vendorExtensions.x-accepts}} }{{#vendorExtensions.x-content-type}},
-        contentType = "{{{vendorExtensions.x-content-type}}}"{{/vendorExtensions.x-content-type}}
-    )
     {{>responseType}} {{operationId}}(
         {{#allParams}}{{>queryParams}}{{>pathParams}}{{>headerParams}}{{>bodyParams}}{{>formParams}}{{>cookieParams}}{{^-last}},
         {{/-last}}{{/allParams}}

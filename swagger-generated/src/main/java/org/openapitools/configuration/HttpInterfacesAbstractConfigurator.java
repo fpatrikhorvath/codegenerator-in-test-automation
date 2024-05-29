@@ -7,7 +7,8 @@ package org.openapitools.configuration;
 
 import org.openapitools.api.BookApi;
 import org.openapitools.api.UserApi;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.HttpHeaders;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.support.WebClientAdapter;
@@ -15,23 +16,10 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 
 public abstract class HttpInterfacesAbstractConfigurator {
 
-    private final WebClient webClient;
+    protected WebClient webClient;
+    protected final HttpHeaders headers = new HttpHeaders();
+    protected final ObjectMapper mapper = new ObjectMapper().findAndRegisterModules();
 
-    public HttpInterfacesAbstractConfigurator(final WebClient webClient) {
-        this.webClient = webClient;
+    public HttpInterfacesAbstractConfigurator() {
     }
-
-    @Bean(name = "org.openapitools.configuration.HttpInterfacesAbstractConfigurator.book")
-    BookApi bookHttpProxy() {
-        HttpServiceProxyFactory factory = HttpServiceProxyFactory.builder(WebClientAdapter.forClient(webClient)).build();
-        return factory.createClient(BookApi.class);
-    }
-
-    @Bean(name = "org.openapitools.configuration.HttpInterfacesAbstractConfigurator.user")
-    UserApi userHttpProxy() {
-        HttpServiceProxyFactory factory = HttpServiceProxyFactory.builder(WebClientAdapter.forClient(webClient)).build();
-        return factory.createClient(UserApi.class);
-    }
-
-
 }

@@ -26,11 +26,10 @@ public class CreateBookForUserRequest {
   protected String author;
 
   /**
-   * Constructor with only required parameters
+   * Constructor 
    */
-  public CreateBookForUserRequest(String title, String author) {
-    this.title = title;
-    this.author = author;
+  public CreateBookForUserRequest() {
+
   }
 
   public CreateBookForUserRequest title(String title) {

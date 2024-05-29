@@ -66,13 +66,10 @@ public class User {
   protected StatusEnum status;
 
   /**
-   * Constructor with only required parameters
+   * Constructor 
    */
-  public User(Long id, String name, String email, StatusEnum status) {
-    this.id = id;
-    this.name = name;
-    this.email = email;
-    this.status = status;
+  public User() {
+
   }
 
   public User id(Long id) {

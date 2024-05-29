@@ -28,13 +28,10 @@ public class Book {
   protected String author;
 
   /**
-   * Constructor with only required parameters
+   * Constructor 
    */
-  public Book(Long id, Long userId, String title, String author) {
-    this.id = id;
-    this.userId = userId;
-    this.title = title;
-    this.author = author;
+  public Book() {
+
   }
 
   public Book id(Long id) {

@@ -66,12 +66,10 @@ public class CreateUserRequest {
   protected StatusEnum status;
 
   /**
-   * Constructor with only required parameters
+   * Constructor 
    */
-  public CreateUserRequest(String name, String email, StatusEnum status) {
-    this.name = name;
-    this.email = email;
-    this.status = status;
+  public CreateUserRequest() {
+
   }
 
   public CreateUserRequest name(String name) {
