@@ -15,7 +15,7 @@ The Openapi/Swagger code generator can help You generate the DTOs and the reques
 To generate swagger codes from swagger.json:
 
 ```
-$ java -jar openapi-generator-cli.jar generate -i swagger.json -g spring -o swagger-generated -c config.json -t template
+$ make Makefile generate
 ```
 
 To run the mocked server:
@@ -26,11 +26,7 @@ $ node server/server.js
 
 ## TODOS
 
-- Implement generating process in the Makefile
 - CLI run <- currently a dependency issue blocking this
-- Implementing 2 suites for each Api group
-- Remove the configuration folder from the generated code
-- Add a context id to the mustache
 
 ## License
 MIT
