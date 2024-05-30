@@ -26,6 +26,6 @@ $ node server/server.js
 
 - CLI run <- currently a dependency issue blocking this
 - Logger
-- 
+
 ## License
 MIT
