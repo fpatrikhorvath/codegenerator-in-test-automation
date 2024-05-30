@@ -4,15 +4,13 @@ The Openapi/Swagger code generator can help You generate the DTOs and the reques
 
 ## Installation
 
-1. Clone the repository
-2. (Generate the swagger codes, or just use the current one)
-3. Install the "Cucumber for Java" plugin
-4. Run the server/server.js
-5. Run the feature by pressing the run button (cli run later on)
+1. Delete the swagger-generated folder and generate the code, (or skip and use the provided)
+2. Run the server/server.js
+3. Run the feature by pressing the run button (cli run later on)
 
 ## Commands
 
-To generate swagger codes from swagger.json:
+Unix generate:
 
 ```
 $ make Makefile generate
