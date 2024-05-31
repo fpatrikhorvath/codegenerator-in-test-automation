@@ -5,9 +5,10 @@
 */
 package org.openapitools.api;
 
+import org.openapitools.model.GenericErrorResponse;
+
 import org.openapitools.model.CreateUser201ResponseDTO;
 import org.openapitools.model.CreateUserRequestDTO;
-import org.openapitools.model.GenericErrorResponse;
 import org.openapitools.model.UserDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -39,7 +40,8 @@ import jakarta.annotation.Generated;
             * @param createUserRequestDTO  (required)
         * @return User created successfully (status code 201)
         */
-        ResponseEntity<GenericErrorResponse> createUserNeg(
+        ResponseEntity
+        <GenericErrorResponse> createUserNeg(
          @RequestBody CreateUserRequestDTO createUserRequestDTO
             );
 
@@ -60,7 +62,8 @@ import jakarta.annotation.Generated;
             * @param userId ID of the user to delete (required)
         * @return User deleted successfully (status code 204)
         */
-        ResponseEntity<GenericErrorResponse> deleteUserNeg(
+        ResponseEntity
+        <GenericErrorResponse> deleteUserNeg(
          @PathVariable("userId") Long userId
             );
 
@@ -79,7 +82,8 @@ import jakarta.annotation.Generated;
         *
         * @return List of users (status code 200)
         */
-        ResponseEntity<GenericErrorResponse> getUsersNeg(
+        ResponseEntity
+        <GenericErrorResponse> getUsersNeg(
         
             );
 

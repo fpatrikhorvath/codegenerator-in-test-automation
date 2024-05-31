@@ -34,8 +34,7 @@ public class UserService {
         user.setEmail(randomService.getRandomString(7) + "@gmail.com");
         user.setStatus(status);
 
-        //logger.debug("Context user: {}", user);
-        System.out.println("Context user: " + user);
+        logger.debug("User: {}", user);
         return user;
     }
 

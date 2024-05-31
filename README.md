@@ -10,7 +10,7 @@ The Openapi/Swagger code generator can help You generate the DTOs and the reques
 
 ## Commands
 
-Unix generate:
+(Unix) code generate:
 
 ```
 $ make Makefile generate

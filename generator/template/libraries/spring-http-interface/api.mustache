@@ -5,6 +5,8 @@
 */
 package {{package}};
 
+import org.openapitools.model.GenericErrorResponse;
+
 {{#imports}}import {{import}};
 {{/imports}}
 import org.springframework.http.ResponseEntity;
@@ -12,8 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.service.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 {{#reactive}}
-
-import com.automation.regression.rest.model.GenericErrorResponse
 import org.springframework.http.codec.multipart.Part;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -79,9 +79,10 @@ import {{javaxPackage}}.annotation.Generated;
         {{#isDeprecated}}
             @Deprecated
         {{/isDeprecated}}
-        ResponseEntity<GenericErrorResponse> {{operationId}}Neg(
-        {{#allParams}}{{>queryParams}}{{>pathParams}}{{>headerParams}}{{>bodyParams}}{{>formParams}}{{>cookieParams}}{{^-last}}
-                ,{{/-last}}{{/allParams}}
+        ResponseEntity
+        <GenericErrorResponse> {{operationId}}Neg(
+        {{#allParams}}{{>queryParams}}{{>pathParams}}{{>headerParams}}{{>bodyParams}}{{>formParams}}{{>cookieParams}}{{^-last}},
+        {{/-last}}{{/allParams}}
             ){{#unhandledException}} throws Exception{{/unhandledException}};
 
     {{/operation}}

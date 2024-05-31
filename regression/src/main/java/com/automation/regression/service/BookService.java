@@ -36,8 +36,7 @@ public class BookService {
         book.setAuthor(randomService.getRandomString(10));
         book.setTitle(randomService.getRandomString(10));
 
-        //logger.debug("Context user: {}", user);
-        System.out.println("Context book: " + book);
+        logger.debug("Book: {}", book);
         return book;
     }
 
