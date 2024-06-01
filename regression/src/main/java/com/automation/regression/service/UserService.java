@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 @ScenarioScope
 public class UserService {
-    private static final Logger logger = LogManager.getLogger(UserService.class);
+    private static final Logger LOG = LogManager.getLogger(UserService.class);
 
     private final UserClient userClient;
     private final RandomService randomService;
@@ -34,7 +34,7 @@ public class UserService {
         user.setEmail(randomService.getRandomString(7) + "@gmail.com");
         user.setStatus(status);
 
-        logger.debug("User: {}", user);
+        LOG.debug("User: {}", user);
         return user;
     }
 
@@ -48,6 +48,7 @@ public class UserService {
         body.setEmail(user.getEmail());
         body.setStatus(status);
 
+        LOG.debug("User create request body: {}", body);
         return userClient.createUser(body);
     }
 

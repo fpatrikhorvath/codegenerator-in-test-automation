@@ -25,7 +25,6 @@ $ node server/server.js
 ## TODOS
 
 - CLI run <- currently a dependency issue blocking this
-- Logger
 
 ## License
 MIT

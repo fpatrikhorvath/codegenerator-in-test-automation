@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 @ScenarioScope
 public class BookService {
-    private static final Logger logger = LogManager.getLogger(BookService.class);
+    private static final Logger LOG = LogManager.getLogger(BookService.class);
 
     private final BookClient bookClient;
     private final RandomService randomService;
@@ -36,7 +36,7 @@ public class BookService {
         book.setAuthor(randomService.getRandomString(10));
         book.setTitle(randomService.getRandomString(10));
 
-        logger.debug("Book: {}", book);
+        LOG.debug("Book: {}", book);
         return book;
     }
 
