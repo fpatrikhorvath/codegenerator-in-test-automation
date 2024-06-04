@@ -22,4 +22,5 @@ public abstract class HttpInterfacesAbstractConfigurator {
 
     public HttpInterfacesAbstractConfigurator() {
     }
+
 }

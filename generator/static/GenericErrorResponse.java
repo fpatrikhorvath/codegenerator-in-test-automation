@@ -1,4 +1,4 @@
-package com.automation.regression.rest.model;
+package org.openapitools.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -25,4 +25,3 @@ public class GenericErrorResponse {
         return sb.toString();
     }
 }
-

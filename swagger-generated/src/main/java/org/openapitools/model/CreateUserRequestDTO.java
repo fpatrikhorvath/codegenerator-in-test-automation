@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
@@ -14,13 +15,14 @@ import java.util.*;
 import jakarta.annotation.Generated;
 
 /**
- * User
+ * CreateUserRequestDTO
  */
+import org.openapitools.model.GenericErrorResponse;
 
+
+@JsonTypeName("createUser_request")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.5.0")
-public class User {
-
-  protected Long id = null;
+public class CreateUserRequestDTO {
 
   protected String name;
 
@@ -68,30 +70,11 @@ public class User {
   /**
    * Constructor 
    */
-  public User() {
+  public CreateUserRequestDTO() {
 
   }
 
-  public User id(Long id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Get id
-   * @return id
-  */
-  @NotNull
-  @JsonProperty("id")
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public User name(String name) {
+  public CreateUserRequestDTO name(String name) {
     this.name = name;
     return this;
   }
@@ -110,7 +93,7 @@ public class User {
     this.name = name;
   }
 
-  public User email(String email) {
+  public CreateUserRequestDTO email(String email) {
     this.email = email;
     return this;
   }
@@ -129,7 +112,7 @@ public class User {
     this.email = email;
   }
 
-  public User status(StatusEnum status) {
+  public CreateUserRequestDTO status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -156,23 +139,21 @@ public class User {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    User user = (User) o;
-    return Objects.equals(this.id, user.id) &&
-        Objects.equals(this.name, user.name) &&
-        Objects.equals(this.email, user.email) &&
-        Objects.equals(this.status, user.status);
+    CreateUserRequestDTO createUserRequest = (CreateUserRequestDTO) o;
+    return Objects.equals(this.name, createUserRequest.name) &&
+        Objects.equals(this.email, createUserRequest.email) &&
+        Objects.equals(this.status, createUserRequest.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, email, status);
+    return Objects.hash(name, email, status);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class User {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class CreateUserRequestDTO {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

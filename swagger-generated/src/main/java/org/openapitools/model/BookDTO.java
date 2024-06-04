@@ -14,12 +14,18 @@ import java.util.*;
 import jakarta.annotation.Generated;
 
 /**
- * CreateBookForUserRequest
+ * BookDTO
  */
+import org.openapitools.model.GenericErrorResponse;
 
-@JsonTypeName("createBookForUser_request")
+
+@JsonTypeName("Book")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.5.0")
-public class CreateBookForUserRequest {
+public class BookDTO {
+
+  protected Long id = null;
+
+  protected Long userId = null;
 
   protected String title;
 
@@ -28,11 +34,49 @@ public class CreateBookForUserRequest {
   /**
    * Constructor 
    */
-  public CreateBookForUserRequest() {
+  public BookDTO() {
 
   }
 
-  public CreateBookForUserRequest title(String title) {
+  public BookDTO id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @NotNull
+  @JsonProperty("id")
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public BookDTO userId(Long userId) {
+    this.userId = userId;
+    return this;
+  }
+
+  /**
+   * Get userId
+   * @return userId
+  */
+  @NotNull
+  @JsonProperty("userId")
+  public Long getUserId() {
+    return userId;
+  }
+
+  public void setUserId(Long userId) {
+    this.userId = userId;
+  }
+
+  public BookDTO title(String title) {
     this.title = title;
     return this;
   }
@@ -51,7 +95,7 @@ public class CreateBookForUserRequest {
     this.title = title;
   }
 
-  public CreateBookForUserRequest author(String author) {
+  public BookDTO author(String author) {
     this.author = author;
     return this;
   }
@@ -78,20 +122,24 @@ public class CreateBookForUserRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateBookForUserRequest createBookForUserRequest = (CreateBookForUserRequest) o;
-    return Objects.equals(this.title, createBookForUserRequest.title) &&
-        Objects.equals(this.author, createBookForUserRequest.author);
+    BookDTO book = (BookDTO) o;
+    return Objects.equals(this.id, book.id) &&
+        Objects.equals(this.userId, book.userId) &&
+        Objects.equals(this.title, book.title) &&
+        Objects.equals(this.author, book.author);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, author);
+    return Objects.hash(id, userId, title, author);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateBookForUserRequest {\n");
+    sb.append("class BookDTO {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("}");

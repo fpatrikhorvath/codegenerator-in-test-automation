@@ -14,16 +14,18 @@ import java.util.*;
 import jakarta.annotation.Generated;
 
 /**
- * CreateBookForUser404Response
+ * CreateBookForUser404ResponseDTO
  */
+import org.openapitools.model.GenericErrorResponse;
+
 
 @JsonTypeName("createBookForUser_404_response")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.5.0")
-public class CreateBookForUser404Response {
+public class CreateBookForUser404ResponseDTO {
 
   protected String error;
 
-  public CreateBookForUser404Response error(String error) {
+  public CreateBookForUser404ResponseDTO error(String error) {
     this.error = error;
     return this;
   }
@@ -50,7 +52,7 @@ public class CreateBookForUser404Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateBookForUser404Response createBookForUser404Response = (CreateBookForUser404Response) o;
+    CreateBookForUser404ResponseDTO createBookForUser404Response = (CreateBookForUser404ResponseDTO) o;
     return Objects.equals(this.error, createBookForUser404Response.error);
   }
 
@@ -62,7 +64,7 @@ public class CreateBookForUser404Response {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateBookForUser404Response {\n");
+    sb.append("class CreateBookForUser404ResponseDTO {\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("}");
     return sb.toString();

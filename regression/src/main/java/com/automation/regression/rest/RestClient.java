@@ -1,5 +1,6 @@
 package com.automation.regression.rest;
 
+import com.automation.regression.stepdef.GeneralSteps;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,7 +12,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import java.util.List;
 
 public class RestClient extends HttpInterfacesAbstractConfigurator {
-    private static final Logger logger = LogManager.getLogger(RestClient.class);
+    private static final Logger LOG = LogManager.getLogger(RestClient.class);
     private String url;
 
     public RestClient(final String url, final HttpHeaders headers) {
@@ -21,7 +22,7 @@ public class RestClient extends HttpInterfacesAbstractConfigurator {
         this.webClient = WebClient.builder()
                 .baseUrl(url)
                 .defaultHeaders(httpHeaders -> httpHeaders.addAll(this.headers)).build();
-        //logger.trace(webClient);
+        LOG.trace(webClient);
     }
 
     public <T> ResponseEntity<List<T>> getList(final String endpoint, final Class<T> clazz) {
@@ -33,7 +34,20 @@ public class RestClient extends HttpInterfacesAbstractConfigurator {
                 .exchangeToMono(clientResponse -> clientResponse.toEntityList(clazz))
                 .block();
 
-        logger.debug("Response: {}", response);
+        LOG.debug("Response: {}", response);
+        return response;
+    }
+
+    public <T> ResponseEntity<T> get(final String endpoint, final Class<T> clazz) {
+        logCurl("GET", endpoint, null);
+
+        ResponseEntity<T> response = webClient
+                .get()
+                .uri(endpoint)
+                .exchangeToMono(clientResponse -> clientResponse.toEntity(clazz))
+                .block();
+
+        LOG.debug("Response: {}", response);
         return response;
     }
 
@@ -46,7 +60,8 @@ public class RestClient extends HttpInterfacesAbstractConfigurator {
                 .bodyValue(body)
                 .exchangeToMono(clientResponse -> clientResponse.toEntity(clazz))
                 .block();
-        System.out.println("Response: " + response);
+
+        LOG.debug("Response: {}", response);
         return response;
     }
 
@@ -57,8 +72,8 @@ public class RestClient extends HttpInterfacesAbstractConfigurator {
                 .uri(endpoint)
                 .exchangeToMono(clientResponse -> clientResponse.toEntity(clazz))
                 .block();
-        //logger.debug("Response: {}", response);
-        System.out.println("Response: " + response);
+
+        LOG.debug("Response: {}", response);
         return response;
     }
 
@@ -75,12 +90,11 @@ public class RestClient extends HttpInterfacesAbstractConfigurator {
                 String jsonPayload = mapper.writeValueAsString(body);
                 curlCommand.append("-d '").append(jsonPayload).append("' ");
             } catch (JsonProcessingException e) {
-                logger.error("Failed to convert payload to JSON", e);
+                LOG.debug("Failed to convert payload to JSON", e);
             }
         }
 
         //logger.debug("Curl command: {}", curlCommand.toString().trim());
-        System.out.println("Curl command: " + curlCommand.toString().trim());
-
+        LOG.info("Curl command: " + curlCommand.toString().trim());
     }
 }

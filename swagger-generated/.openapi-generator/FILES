@@ -3,9 +3,9 @@ pom.xml
 src/main/java/org/openapitools/api/BookApi.java
 src/main/java/org/openapitools/api/UserApi.java
 src/main/java/org/openapitools/configuration/HttpInterfacesAbstractConfigurator.java
-src/main/java/org/openapitools/model/Book.java
-src/main/java/org/openapitools/model/CreateBookForUser404Response.java
-src/main/java/org/openapitools/model/CreateBookForUserRequest.java
-src/main/java/org/openapitools/model/CreateUser201Response.java
-src/main/java/org/openapitools/model/CreateUserRequest.java
-src/main/java/org/openapitools/model/User.java
+src/main/java/org/openapitools/model/BookDTO.java
+src/main/java/org/openapitools/model/CreateBookForUser404ResponseDTO.java
+src/main/java/org/openapitools/model/CreateBookForUserRequestDTO.java
+src/main/java/org/openapitools/model/CreateUser201ResponseDTO.java
+src/main/java/org/openapitools/model/CreateUserRequestDTO.java
+src/main/java/org/openapitools/model/UserDTO.java

@@ -2,8 +2,14 @@
   "groupId": "com.swagger.generated",
   "artifactId": "swagger-generated",
   "artifactVersion": "1.0.0",
+
   "hideGenerationTimestamp": true,
   "library": "spring-http-interface",
   "dateLibrary": "java17",
-  "annotationLibrary": "swagger3"
+  "annotationLibrary": "swagger3",
+  "modelNameSuffix" : "DTO",
+
+    "schemaMappings": {
+      "ema": "java.lang.Long"
+    }
 }
