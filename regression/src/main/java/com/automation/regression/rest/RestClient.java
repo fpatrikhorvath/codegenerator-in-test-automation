@@ -1,6 +1,5 @@
 package com.automation.regression.rest;
 
-import com.automation.regression.stepdef.GeneralSteps;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,11 +10,13 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
 
+
 public class RestClient extends HttpInterfacesAbstractConfigurator {
     private static final Logger LOG = LogManager.getLogger(RestClient.class);
     private String url;
 
-    public RestClient(final String url, final HttpHeaders headers) {
+    public RestClient(final String url,
+                      final HttpHeaders headers) {
         headers.forEach(this.headers::addAll);
 
         this.url = url;
@@ -81,7 +82,12 @@ public class RestClient extends HttpInterfacesAbstractConfigurator {
         StringBuilder curlCommand = new StringBuilder("curl -X ").append(requestType).append(" ");
 
         headers.forEach((key, value) ->
-                value.forEach(val -> curlCommand.append("-H \"").append(key).append(": ").append(val).append("\" ")));
+                value.forEach(val -> curlCommand
+                        .append("-H \"")
+                        .append(key)
+                        .append(": ")
+                        .append(val)
+                        .append("\" ")));
 
         curlCommand.append(url).append(endpoint).append(" ");
 
@@ -94,7 +100,6 @@ public class RestClient extends HttpInterfacesAbstractConfigurator {
             }
         }
 
-        //logger.debug("Curl command: {}", curlCommand.toString().trim());
         LOG.info("Curl command: " + curlCommand.toString().trim());
     }
 }

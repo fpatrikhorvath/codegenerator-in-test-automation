@@ -4,8 +4,6 @@ import com.automation.regression.context.ScenarioContext;
 import com.automation.regression.stores.UserLayerContextStore;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openapitools.model.BookDTO;
 import org.openapitools.model.GenericErrorResponse;
 import org.openapitools.model.UserDTO;
@@ -20,7 +18,8 @@ import static org.springframework.http.HttpStatus.CREATED;
 import static org.testng.AssertJUnit.*;
 
 public class BookSteps extends TestCore {
-    public BookSteps(final UserLayerContextStore userLayerContextStore, final ScenarioContext scenarioContext) {
+    public BookSteps(final UserLayerContextStore userLayerContextStore,
+                     final ScenarioContext scenarioContext) {
         super(userLayerContextStore, scenarioContext);
     }
 

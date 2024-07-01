@@ -17,7 +17,8 @@ import static org.testng.AssertJUnit.*;
 
 public class UserSteps extends TestCore {
 
-    public UserSteps(final UserLayerContextStore userLayerContextStore, final ScenarioContext scenarioContext) {
+    public UserSteps(final UserLayerContextStore userLayerContextStore,
+                     final ScenarioContext scenarioContext) {
         super(userLayerContextStore, scenarioContext);
     }
 
