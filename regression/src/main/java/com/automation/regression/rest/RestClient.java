@@ -18,7 +18,6 @@ public class RestClient extends HttpInterfacesAbstractConfigurator {
     public RestClient(final String url,
                       final HttpHeaders headers) {
         headers.forEach(this.headers::addAll);
-
         this.url = url;
         this.webClient = WebClient.builder()
                 .baseUrl(url)

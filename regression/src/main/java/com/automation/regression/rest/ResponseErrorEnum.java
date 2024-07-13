@@ -7,11 +7,11 @@ public enum ResponseErrorEnum {
 
     private final String message;
 
-    ResponseErrorEnum(String message) {
+    ResponseErrorEnum(final String message) {
         this.message = message;
     }
 
-    public static ResponseErrorEnum getByMessage(String message) {
+    public static ResponseErrorEnum getByMessage(final String message) {
         for (ResponseErrorEnum e : ResponseErrorEnum.values()) {
             if (e.message.equals(message)) {
                 return e;
