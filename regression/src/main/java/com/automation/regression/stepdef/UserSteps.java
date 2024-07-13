@@ -17,7 +17,8 @@ import static org.testng.AssertJUnit.*;
 
 public class UserSteps extends TestCore {
 
-    public UserSteps(final UserLayerContextStore userLayerContextStore, final ScenarioContext scenarioContext) {
+    public UserSteps(final UserLayerContextStore userLayerContextStore,
+                     final ScenarioContext scenarioContext) {
         super(userLayerContextStore, scenarioContext);
     }
 
@@ -28,7 +29,7 @@ public class UserSteps extends TestCore {
         UserDTO user = getUserService().initContextUser(statusString);
 
         ResponseEntity<CreateUser201ResponseDTO> response = getUserService().registerUser(user);
-        assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(httpStatus));
+        assertTrue(response.getStatusCode().isSameCodeAs(httpStatus));
 
         if (response.getStatusCode().isSameCodeAs(HttpStatus.CREATED)) {
             user.setId(Objects.requireNonNull(response.getBody()).getId());
@@ -42,7 +43,7 @@ public class UserSteps extends TestCore {
         UserDTO expUser = (UserDTO) scenarioContext.getContextObject(contextId);
 
         ResponseEntity<List<UserDTO>> response = getUserService().getUsers();
-        assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(HttpStatus.OK));
+        assertTrue(response.getStatusCode().isSameCodeAs(HttpStatus.OK));
 
         UserDTO actUser = Objects.requireNonNull(response.getBody())
                 .stream()
@@ -57,7 +58,7 @@ public class UserSteps extends TestCore {
     public void deleteUser(final String contextId, final HttpStatus httpStatus) {
         UserDTO user = (UserDTO) scenarioContext.getContextObject(contextId);
         ResponseEntity<Void> response = getUserService().deleteUser(user.getId());
-        assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(httpStatus));
+        assertTrue(response.getStatusCode().isSameCodeAs(httpStatus));
     }
 
     @Then("verify that user {word} does not exist")
@@ -65,7 +66,7 @@ public class UserSteps extends TestCore {
         UserDTO user = (UserDTO) scenarioContext.getContextObject(contextId);
 
         ResponseEntity<List<UserDTO>> response = getUserService().getUsers();
-        assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(HttpStatus.OK));
+        assertTrue(response.getStatusCode().isSameCodeAs(HttpStatus.OK));
 
         UserDTO actUser = Objects.requireNonNull(response.getBody())
                 .stream()

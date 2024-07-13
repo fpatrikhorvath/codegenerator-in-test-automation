@@ -4,8 +4,6 @@ import com.automation.regression.context.ScenarioContext;
 import com.automation.regression.stores.UserLayerContextStore;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openapitools.model.BookDTO;
 import org.openapitools.model.GenericErrorResponse;
 import org.openapitools.model.UserDTO;
@@ -20,7 +18,8 @@ import static org.springframework.http.HttpStatus.CREATED;
 import static org.testng.AssertJUnit.*;
 
 public class BookSteps extends TestCore {
-    public BookSteps(final UserLayerContextStore userLayerContextStore, final ScenarioContext scenarioContext) {
+    public BookSteps(final UserLayerContextStore userLayerContextStore,
+                     final ScenarioContext scenarioContext) {
         super(userLayerContextStore, scenarioContext);
     }
 
@@ -32,12 +31,12 @@ public class BookSteps extends TestCore {
 
         if (CREATED.isSameCodeAs(httpStatus)) {
             ResponseEntity<BookDTO> response = getBookService().registerBook(book);
-            assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(httpStatus));
+            assertTrue(response.getStatusCode().isSameCodeAs(httpStatus));
             book.setId(Objects.requireNonNull(response.getBody()).getId());
 
-        } else if (httpStatus.is4xxClientError() || httpStatus.is5xxServerError()) {
+        } else if (httpStatus.isError()) {
             ResponseEntity<GenericErrorResponse> response = getBookService().registerBookNegative(book);
-            assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(httpStatus));
+            assertTrue(response.getStatusCode().isSameCodeAs(httpStatus));
             scenarioContext.storeResponse(Objects.requireNonNull(response.getBody()).getError());
 
         } else {
@@ -52,7 +51,7 @@ public class BookSteps extends TestCore {
         BookDTO book = (BookDTO) scenarioContext.getContextObject(bookId);
 
         ResponseEntity<List<BookDTO>> response = getBookService().getBooks(book);
-        assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(HttpStatus.OK));
+        assertTrue(response.getStatusCode().isSameCodeAs(HttpStatus.OK));
 
         BookDTO actBook = Objects.requireNonNull(response.getBody())
                 .stream()
@@ -68,7 +67,7 @@ public class BookSteps extends TestCore {
         BookDTO expBook = (BookDTO) scenarioContext.getContextObject(bookId);
 
         ResponseEntity<List<BookDTO>> response = getBookService().getBooks(expBook);
-        assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(HttpStatus.OK));
+        assertTrue(response.getStatusCode().isSameCodeAs(HttpStatus.OK));
 
         BookDTO actBook = Objects.requireNonNull(response.getBody())
                 .stream()
@@ -86,6 +85,6 @@ public class BookSteps extends TestCore {
         BookDTO book = (BookDTO) scenarioContext.getContextObject(bookId);
 
         ResponseEntity<Void> response = getBookService().deleteBook(user, book);
-        assertTrue(RESPONSE_CODE_CHECK_MESSAGE, response.getStatusCode().isSameCodeAs(httpStatus));
+        assertTrue(response.getStatusCode().isSameCodeAs(httpStatus));
     }
 }

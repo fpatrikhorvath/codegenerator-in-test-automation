@@ -2,26 +2,22 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
+    <groupId>com.automation</groupId>
+    <artifactId>regression</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
     <modelVersion>4.0.0</modelVersion>
+
+    <properties>
+        <java.version>17</java.version>
+        <io.cucumber.version>7.13.0</io.cucumber.version>
+        <org.springframework.spring-boot.version>3.2.1</org.springframework.spring-boot.version>
+    </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.2.5</version>
     </parent>
-
-    <groupId>com.automation</groupId>
-    <artifactId>regression</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>regression</name>
-
-    <properties>
-        <java.version>17</java.version>
-        <io.cucumber.version>7.13.0</io.cucumber.version>
-        <org.assetj.assertj-core.version>3.23.1</org.assetj.assertj-core.version>
-        <org.springframework.spring-boot.version>3.2.1</org.springframework.spring-boot.version>
-        <codegen.maven.plugin.version>3.0.56</codegen.maven.plugin.version>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -64,10 +60,12 @@
             <artifactId>swagger-generated</artifactId>
             <version>1.0.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-test</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>

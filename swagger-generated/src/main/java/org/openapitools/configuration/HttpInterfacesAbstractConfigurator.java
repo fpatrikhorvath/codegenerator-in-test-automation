@@ -5,14 +5,11 @@
 */
 package org.openapitools.configuration;
 
-import org.openapitools.api.BookApi;
-import org.openapitools.api.UserApi;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpHeaders;
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.reactive.function.client.support.WebClientAdapter;
-import org.springframework.web.service.invoker.HttpServiceProxyFactory;
+
 
 public abstract class HttpInterfacesAbstractConfigurator {
 
