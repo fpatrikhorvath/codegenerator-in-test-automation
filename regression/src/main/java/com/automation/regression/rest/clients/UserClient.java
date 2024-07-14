@@ -46,17 +46,13 @@ public class UserClient implements UserApi {
 
     @Override
     public ResponseEntity<Void> deleteUser(final Long userId) {
-        String endpoint = StringUtils
-                .replace(DELETE_USER_PATH, "{userId}", String.valueOf(userId));
-
+        String endpoint = StringUtils.replace(DELETE_USER_PATH, "{userId}", String.valueOf(userId));
         return restClient.delete(endpoint, Void.class);
     }
 
     @Override
     public ResponseEntity<GenericErrorResponse> deleteUserNeg(final Long userId) {
-        String endpoint = StringUtils
-                .replace(DELETE_USER_PATH, "{userId}", String.valueOf(userId));
-
+        String endpoint = StringUtils.replace(DELETE_USER_PATH, "{userId}", String.valueOf(userId));
         return restClient.delete(endpoint, GenericErrorResponse.class);
     }
 

@@ -29,6 +29,5 @@ public class ScenarioContext {
 
     public void storeResponse(final String response) {
         this.response = ResponseErrorEnum.getByMessage(response);
-        ;
     }
 }

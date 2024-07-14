@@ -28,9 +28,7 @@ public class UserService {
 
     public UserDTO initContextUser(final String statusString) {
         UserDTO user = new UserDTO();
-
         UserDTO.StatusEnum status = UserDTO.StatusEnum.valueOf(statusString);
-
         user.setName(randomService.getRandomString(10));
         user.setEmail(randomService.getRandomString(7) + "@gmail.com");
         user.setStatus(status);
@@ -40,11 +38,8 @@ public class UserService {
     }
 
     public ResponseEntity<CreateUser201ResponseDTO> registerUser(final UserDTO user) {
-
         CreateUserRequestDTO body = new CreateUserRequestDTO();
-
         CreateUserRequestDTO.StatusEnum status = CreateUserRequestDTO.StatusEnum.valueOf(user.getStatus().toString());
-
         body.setName(user.getName());
         body.setEmail(user.getEmail());
         body.setStatus(status);

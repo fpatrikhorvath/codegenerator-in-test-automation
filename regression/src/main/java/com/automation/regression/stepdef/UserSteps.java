@@ -25,9 +25,7 @@ public class UserSteps extends TestCore {
     @Given("(create )a new user of status {word} and store it as {word} -> {}")
     public void createANewUserOfTypeAndStoreItAs
             (final String statusString, final String contextId, final HttpStatus httpStatus) {
-
         UserDTO user = getUserService().initContextUser(statusString);
-
         ResponseEntity<CreateUser201ResponseDTO> response = getUserService().registerUser(user);
         assertTrue(response.getStatusCode().isSameCodeAs(httpStatus));
 
@@ -41,7 +39,6 @@ public class UserSteps extends TestCore {
     @Then("verify that user {word} exists")
     public void verifyThatUserExists(final String contextId) {
         UserDTO expUser = (UserDTO) scenarioContext.getContextObject(contextId);
-
         ResponseEntity<List<UserDTO>> response = getUserService().getUsers();
         assertTrue(response.getStatusCode().isSameCodeAs(HttpStatus.OK));
 
@@ -64,7 +61,6 @@ public class UserSteps extends TestCore {
     @Then("verify that user {word} does not exist")
     public void verifyThatUserDoesNotExist(final String contextId) {
         UserDTO user = (UserDTO) scenarioContext.getContextObject(contextId);
-
         ResponseEntity<List<UserDTO>> response = getUserService().getUsers();
         assertTrue(response.getStatusCode().isSameCodeAs(HttpStatus.OK));
 

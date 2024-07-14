@@ -67,6 +67,7 @@ public class RestClient extends HttpInterfacesAbstractConfigurator {
 
     public <T> ResponseEntity<T> delete(final String endpoint, final Class<T> clazz) {
         logCurl("DELETE", endpoint, null);
+
         ResponseEntity<T> response = webClient
                 .delete()
                 .uri(endpoint)

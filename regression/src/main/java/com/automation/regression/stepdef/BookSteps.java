@@ -49,7 +49,6 @@ public class BookSteps extends TestCore {
     @Then("verify that book {word} does not exist")
     public void verifyThatBookDoesNotExist(final String bookId) {
         BookDTO book = (BookDTO) scenarioContext.getContextObject(bookId);
-
         ResponseEntity<List<BookDTO>> response = getBookService().getBooks(book);
         assertTrue(response.getStatusCode().isSameCodeAs(HttpStatus.OK));
 
@@ -65,7 +64,6 @@ public class BookSteps extends TestCore {
     @Then("verify that book {word} exist")
     public void verifyThatBookExist(final String bookId) {
         BookDTO expBook = (BookDTO) scenarioContext.getContextObject(bookId);
-
         ResponseEntity<List<BookDTO>> response = getBookService().getBooks(expBook);
         assertTrue(response.getStatusCode().isSameCodeAs(HttpStatus.OK));
 
@@ -83,7 +81,6 @@ public class BookSteps extends TestCore {
     public void deleteBook(final String bookId, final String userId, final HttpStatus httpStatus) {
         UserDTO user = (UserDTO) scenarioContext.getContextObject(userId);
         BookDTO book = (BookDTO) scenarioContext.getContextObject(bookId);
-
         ResponseEntity<Void> response = getBookService().deleteBook(user, book);
         assertTrue(response.getStatusCode().isSameCodeAs(httpStatus));
     }
