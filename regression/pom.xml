@@ -36,6 +36,7 @@
             <artifactId>cucumber-java</artifactId>
             <version>${io.cucumber.version}</version>
         </dependency>
+
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-spring</artifactId>
